@@ -1,3 +1,4 @@
+
 <html>
 <head>
 <meta http-equiv="content-Type" content="text/html" charset="utf-8">
@@ -5,6 +6,13 @@
 <meta name="description" content="<?=$description?>">
 <meta name="robots" content="<?=$robots?>">
 <link rel="stylesheet" type="text/css" media="all" href="resource/header.css">
+<?php foreach($css as $cssitem):?>
+<link rel="stylesheet" type="text/css" media="all" href="<?=$cssitem?>">
+<?php endforeach;?>
+<script type="text/javascript" src="resource/jquery.min.js"></script>
+<?php foreach($javascript as $jsitem):?>
+<script type="text/javascript" src="<?=$jsitem;?>"></script>
+<?php endforeach;?>
 </head>
 <body>
 
