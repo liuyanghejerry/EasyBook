@@ -1,0 +1,214 @@
+html {
+	color:#333;
+	background:#FFF;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
+	margin:0;
+	padding:0;
+}
+a {
+	color:#2c76c0;
+	text-decoration:none;
+	outline:none;
+}
+a:hover {
+	color:#61a7ed;
+	text-decoration:underline;
+}
+fieldset,img {
+	border:0;
+}
+address,caption,cite,code,dfn,em,th,var,optgroup {
+	font-style:inherit;
+	font-weight:inherit;
+}
+li {
+	list-style:none;
+}
+input,button,textarea,select,optgroup,option {
+	font-family:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	font-weight:inherit;
+	outline:none;
+}
+input,button,textarea,select {
+	*font-size:100%;
+}
+html {
+	color:#666;
+	overflow-y:scroll;
+	background:url(site_bg.jpg);
+}
+body {
+	font:12px/20px "微软雅黑",Tahoma,Arial,Helvetica,sans-serif;
+}
+.field-text {
+	display:inline-block;
+	padding:3px 8px;
+	height:20px;
+	border-color:#C2C2C2 #E8E8E8 #E8E8E8 #C2C2C2;
+	border-style:solid;
+	border-width:1px;
+	line-height:20px;
+}
+.page-top-holder {
+	height:94px;
+	width:100%;
+	margin:0 auto 20px;
+	min-width:970px;
+	border-bottom:1px solid #e8e8e8;
+	background:center -996px #FFF;
+}
+.page-top-simple-holder {
+	height:94px;
+	width:100%;
+	margin:0 auto;
+	background:center -996px url(bg.png) no-repeat;
+}
+.page-head-holder,.page-container-holder,.page-foot-holder {
+	width:970px;
+	margin:0 auto;
+}
+.page-head-holder {
+	position:relative;
+	padding-top:38px;
+	z-index:11000;
+}
+.page-head-holder .logo {
+	position:absolute;
+	left:65px;
+	top:10px;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/static/images/logo.png');
+	_cursor:pointer;
+}
+.page-head-holder .logo img {
+	_visibility:hidden;
+}
+.page-head-holder .main-nav {
+	display:inline;
+	float:left;
+	position:relative;
+	margin-left:172px;
+	overflow:hidden;
+	font-weight:bold;
+	font-size:16px;
+	font-family:"微软雅黑";
+}
+.page-head-holder .main-nav li {
+	float:left;
+	position:relative;
+	padding:4px 0 15px 0;
+	margin-left:-5px;
+	text-indent:-2px;
+}
+.page-head-holder .main-nav li a {
+	color:#333;
+	padding:0 10px;
+	display:block;
+	outline:none;
+}
+.page-head-holder .main-nav li a:hover {
+	color:#c33;
+	text-decoration:none;
+}
+.page-head-holder ul.nav-plaza {
+	margin-left:260px;
+}
+.main-subnav {
+	position:relative;
+	margin-left:169px;
+	overflow:hidden;
+	clear:left;
+	width:300px;
+}
+.main-subnav a {
+	padding:0 10px 0 11px;
+	margin-left:-1px;
+	background:-1175px -738px url(bg.png) no-repeat;
+}
+.search {
+	float:right;
+	position:relative;
+}
+.search fieldset {
+	display:inline;
+}
+.search legend {
+	display:none;
+}
+.search .search-input {
+	float:left;
+	width:240px;
+	height:20px;
+	padding:5px 0 5px 16px;
+	background:url(search.png) no-repeat;
+}
+.search .change_bg {
+	background:0 -564px url(bg.png) no-repeat;
+}
+.search .search-input input {
+	width:190px;
+	padding:2px;
+	border:0 none;
+	color:#ccc;
+	outline:none;
+}
+.search button {
+	float:left;
+	width:35px;
+	height:30px;
+	margin-left:-1px;
+	border:0 none;
+	cursor: pointer;
+	background:url(search_btn.png) no-repeat!important;
+}
+.search .suggestion-layer {
+	display:none;
+	position:absolute;
+	top:29px;
+	left:8px;
+	width:236px;
+	padding:0 7px 32px 3px;
+	border:1px solid #ccc;
+	border-top:0 none;
+	background-color:#FFF;
+}
+.search .suggestion-layer .suggestion-list {
+	line-height:0;
+}
+.search .suggestion-layer li {
+	padding-left:9px;
+	line-height:26px;
+	width:222px;
+	cursor:default;
+}
+.search .suggestion-layer li.over {
+	background-color:#f2f2f2;
+	cursor:default;
+}
+.search .suggestion-layer .follow-search {
+	display:block;
+	position:absolute;
+	left:0;
+	bottom:0;
+	height:31px;
+	width:236px;
+	padding:0 5px;
+	line-height:31px;
+	zoom:1;
+	border-top:1px solid #ebebeb;
+	background:0 -1342px url(bg.png) no-repeat;
+}
+.page-head-holder .user-bar {
+	position:absolute;
+	right:0;
+	top:0;
+	height:26px;
+	padding-top:7px;
+	line-height:26px;
+}
+.user-bar .user-list,.user-bar .user-notice,.user-bar .user-invite {
+	float:right;
+	outline:none;
+}
