@@ -33,7 +33,7 @@
                 </ul>
             </div>
      </div>
-	 <div id="copyright"><span>Copyright 易书网 2011 , All Rights Reserved.</span></div>
+	 <div id="copyright"><span>Copyright 易书网 2011, All Rights Reserved.</span></div>
 </div>
 </body>
 </html>

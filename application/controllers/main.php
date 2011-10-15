@@ -14,8 +14,11 @@ class Main extends CI_Controller{
         $data['keywords'] = 'This, is, keywords';
         $data['description'] = 'This is description';
         $data['robots'] = 'This is robots part';
-		$data['javascript'] = array('resource/main/slideshow.js');
-		$data['css'] = array('resource/common.css','resource/main/main.css','resource/main/slideshow.css','resource/footer/footer.css');
+		$data['javascript'] = array('resource/main/slideshow.js','resource/main/jquery.hoverIntent.min.js'
+								,'resource/main/jquery.mb.flipText.js','resource/main/jquery.metadata.js',
+								'resource/main/mbExtruder.js');
+		$data['css'] = array('resource/common.css','resource/main/main.css','resource/main/slideshow.css',
+							'resource/footer/footer.css','resource/main/mbExtruder.css');
         return $data;
     }
     

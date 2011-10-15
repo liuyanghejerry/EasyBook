@@ -1,5 +1,6 @@
 <div id="main-box">
 <div class="white-box">
+<div id="extruderLeft" class="a {title:'图书分类', url:'static/categories.html'}"></div>
 <a class ="more" href="#">更多-></a>
 <h2>最新售出</h2>
 <div id="ps_slider" class="ps_slider">
@@ -17,13 +18,21 @@
 				<div class="ps_album" style="opacity:0;"><img src="resource/main/9.jpg" alt=""/><div class="ps_desc"><h2>Fearful Water</h2><span>If the doors of perception were cleansed everything would appear to man as it is, infinite.</span></div></div>
 			</div>	
 </div>
-		
-		<div id="ps_overlay" class="ps_overlay" style="display:none;"></div>
-		<a id="ps_close" class="ps_close" style="display:none;"></a>
-		<div id="ps_container" class="ps_container" style="display:none;">
-			<a id="ps_next_photo" class="ps_next_photo" style="display:none;"></a>
-		</div>
 </div>
+<script type="text/javascript">
+$(function() {
+    $("#extruderLeft").buildMbExtruder({
+        position:"left",
+        width:1000,
+		top:200,
+		positionFixed:true,
+        extruderOpacity:1,
+        onExtOpen:function(){},
+        onExtContentLoad:function(){},
+        onExtClose:function(){}
+      });
+});
+</script>
 <div id="center-two">
 <div class="white-box" id="left-box">
 <h2>最新求购</h2>
@@ -90,7 +99,7 @@
 <div class="cover_box">
     <div class="cover_item_box">
         <div class="cover_item_imgbox"><a href="#" target="_blank">
-            <img id="CoverList2_RepeaterUp_ctl00_Image1" src="resource/main/1.jpg" style="border-width:0px;">
+            <img id="CoverList2_RepeaterUp_ctl00_Image1" src="resource/main/1.jpg">
         </a></div>
         <div class="cover_item_name">
             <a href="/BookBook/ShowBook.aspx?BookID=73" target="_blank">计算机算法设计与分析（第三版）</a>
@@ -104,7 +113,7 @@
 
     <div class="cover_item_box">
         <div class="cover_item_imgbox"><a href="#" target="_blank">
-            <img id="CoverList2_RepeaterUp_ctl01_Image1" src="resource/main/2.jpg" style="border-width:0px;">
+            <img id="CoverList2_RepeaterUp_ctl01_Image1" src="resource/main/2.jpg">
         </a></div>
         <div class="cover_item_name">
             <a href="/BookBook/ShowBook.aspx?BookID=69" target="_blank">模拟CMOS集成电路设计</a>
@@ -118,7 +127,7 @@
 
     <div class="cover_item_box">
         <div class="cover_item_imgbox"><a href="#" target="_blank">
-            <img id="CoverList2_RepeaterUp_ctl02_Image1" src="resource/main/3.jpg" style="border-width:0px;">
+            <img id="CoverList2_RepeaterUp_ctl02_Image1" src="resource/main/3.jpg">
         </a></div>
         <div class="cover_item_name">
             <a href="/BookBook/ShowBook.aspx?BookID=133" target="_blank">当代世界经济与政治</a>
@@ -132,7 +141,7 @@
 	
 	<div class="cover_item_box">
         <div class="cover_item_imgbox"><a href="#" target="_blank">
-            <img id="CoverList2_RepeaterUp_ctl02_Image1" src="resource/main/4.jpg" style="border-width:0px;">
+            <img id="CoverList2_RepeaterUp_ctl02_Image1" src="resource/main/4.jpg">
         </a></div>
         <div class="cover_item_name">
             <a href="/BookBook/ShowBook.aspx?BookID=133" target="_blank">当代世界经济与政治</a>
@@ -146,7 +155,7 @@
 <div class="cover_box">
     <div class="cover_item_box">
         <div class="cover_item_imgbox"><a href="#" target="_blank">
-            <img id="CoverList2_RepeaterUp_ctl00_Image1" src="resource/main/5.jpg" style="border-width:0px;">
+            <img id="CoverList2_RepeaterUp_ctl00_Image1" src="resource/main/5.jpg">
         </a></div>
         <div class="cover_item_name">
             <a href="/BookBook/ShowBook.aspx?BookID=73" target="_blank">计算机算法设计与分析（第三版）</a>
@@ -160,7 +169,7 @@
 
     <div class="cover_item_box">
         <div class="cover_item_imgbox"><a href="#" target="_blank">
-            <img id="CoverList2_RepeaterUp_ctl01_Image1" src="resource/main/6.jpg" style="border-width:0px;">
+            <img id="CoverList2_RepeaterUp_ctl01_Image1" src="resource/main/6.jpg">
         </a></div>
         <div class="cover_item_name">
             <a href="/BookBook/ShowBook.aspx?BookID=69" target="_blank">模拟CMOS集成电路设计</a>
@@ -174,7 +183,7 @@
 
     <div class="cover_item_box">
         <div class="cover_item_imgbox"><a href="#" target="_blank">
-            <img id="CoverList2_RepeaterUp_ctl02_Image1" src="resource/main/7.jpg" style="border-width:0px;">
+            <img id="CoverList2_RepeaterUp_ctl02_Image1" src="resource/main/7.jpg">
         </a></div>
         <div class="cover_item_name">
             <a href="/BookBook/ShowBook.aspx?BookID=133" target="_blank">当代世界经济与政治</a>
@@ -188,7 +197,7 @@
 	
 	<div class="cover_item_box">
         <div class="cover_item_imgbox"><a href="#" target="_blank">
-            <img id="CoverList2_RepeaterUp_ctl02_Image1" src="resource/main/8.jpg" style="border-width:0px;">
+            <img id="CoverList2_RepeaterUp_ctl02_Image1" src="resource/main/8.jpg">
         </a></div>
         <div class="cover_item_name">
             <a href="/BookBook/ShowBook.aspx?BookID=133" target="_blank">当代世界经济与政治</a>

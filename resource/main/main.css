@@ -21,7 +21,7 @@ padding: 10px 15px;
 #information h3 {padding:4px 8px 3px; font-size:14px}
 #information p {padding:0 8px 8px}
 #image {width:500px}
-#image img {position:absolute; z-index:25; width:auto}
+#image img {position:absolute; z-index:25; width:auto;}
 .imgnav {position:absolute; width:25%; height:306px; cursor:pointer; z-index:150}
 #imgprev {left:0; background:url(main/left.gif) left center no-repeat}
 #imgnext {right:0; background:url(main/right.gif) right center no-repeat}
@@ -64,6 +64,11 @@ margin-top:15px;
 color: #333;
 text-decoration: none;
 }
+.hot-list a:hover{
+color: #2C76C0;
+text-decoration: none;
+margin-left:2px;
+}
 .li-left {
 margin-left:17px;
 }
@@ -80,9 +85,18 @@ margin-top:15px;
 .cover_item_imgbox{width:90px; height:120px; margin:10px 14px 10px 14px;}
 .cover_item_name{width:110px; margin:0 0 3px 0;  text-align:center; height:36px; }
                  /*overflow: hidden; white-space:nowrap;  -o-text-overflow: ellipsis; text-overflow: ellipsis;}*/
-.cover_item_name a{color:#000000; text-decoration:none;}
-.cover_item_name a:hover{color:#09f; text-decoration:underline;}
+.cover_item_name a{color:#333; text-decoration:none;}
+.cover_item_name a:hover{color:#2C76C0; text-decoration:none;}
 .cover_item_price{width:auto; margin:0 0 0 3px 0; text-align:center; color:#FF0000;
                   overflow: hidden; white-space:nowrap;  -o-text-overflow: ellipsis; text-overflow: ellipsis;}
 .cover_item_price i{color:#000000; font-style:normal;}
-.cover_item_imgbox img{width:90px; height:120px; margin:0px; padding:0px;}
+.cover_item_imgbox img{width:90px; height:120px; margin:0px; padding:1px;border: 1px solid #E2E2E2;}
+
+#nav_inner h2,h3 {
+color:#E8E8E8;
+}
+#nav_inner a:hover {
+color: #2C76C0;
+text-decoration: none;
+margin-left:2px;
+}

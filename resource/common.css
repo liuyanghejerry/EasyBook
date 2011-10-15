@@ -18,9 +18,6 @@ a:hover {
 	color:#61a7ed;
 	text-decoration:underline;
 }
-fieldset,img {
-	border:0;
-}
 address,caption,cite,code,dfn,em,th,var,optgroup {
 	font-style:inherit;
 	font-weight:inherit;

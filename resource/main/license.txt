@@ -1,1 +1,3 @@
-This slideshow script is from http://tympanus.net/Tutorials/PhotoStack/. The changes of the script is still under the same license.
+The slideshow script is from http://tympanus.net/Tutorials/PhotoStack/. 
+The slide menu bar script is from http://pupunzi.open-lab.com/mb-jquery-components/jquery-mb-extruder/.
+The changes of the script are still under the same license.
