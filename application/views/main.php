@@ -26,7 +26,7 @@
 </div>
 <div id="center-two">
 <div class="white-box" id="left-box">
-<h2>求购榜</h2>
+<h2>最新求购</h2>
 <ul class="hot-list">
 <li>
 <h3><a href="#">《经济法》</a></h3>
@@ -203,6 +203,3 @@
 </div>
 </div>
 </div>
-
-</body>
-</html>

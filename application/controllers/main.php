@@ -15,7 +15,7 @@ class Main extends CI_Controller{
         $data['description'] = 'This is description';
         $data['robots'] = 'This is robots part';
 		$data['javascript'] = array('resource/main/slideshow.js');
-		$data['css'] = array('resource/common.css','resource/main/main.css','resource/main/slideshow.css');
+		$data['css'] = array('resource/common.css','resource/main/main.css','resource/main/slideshow.css','resource/footer/footer.css');
         return $data;
     }
     
@@ -25,6 +25,7 @@ class Main extends CI_Controller{
          $data = $this -> _makeHeader($data);
          $this -> load -> view('header', $data);
          $this -> load -> view('main');
+		 $this -> load -> view('footer');
     }
     
     }
