@@ -151,40 +151,40 @@ $(function() {
 				* we randomly rotate them except the last one, which is
 				* the one the User sees first. We also resize and center each image.
 				*/
-				$ps_albums.children('div').bind('click',function(){
-					var $elem = $(this);
-					var album_name 	= 'album' + parseInt($elem.index() + 1);
-					var $loading 	= $('<div />',{className:'loading'});
-					$elem.append($loading);
-					$ps_container.find('img').remove();
-					$.get('photostack.php', {album_name:album_name} , function(data) {
-						var items_count	= data.length;
-						for(var i = 0; i < items_count; ++i){
-							var item_source = data[i];
-							var cnt 		= 0;
-							$('<img />').load(function(){
-								var $image = $(this);
-								++cnt;
-								resizeCenterImage($image);
-								$ps_container.append($image);
-								var r		= Math.floor(Math.random()*41)-20;
-								if(cnt < items_count){
-									$image.css({
-										'-moz-transform'	:'rotate('+r+'deg)',
-										'-webkit-transform'	:'rotate('+r+'deg)',
-										'transform'			:'rotate('+r+'deg)'
-									});
-								}
-								if(cnt == items_count){
-									$loading.remove();
-									$ps_container.show();
-									$ps_close.show();
-									$ps_overlay.show();
-								}
-							}).attr('src',item_source);
-						}
-					},'json');
-				});
+				// $ps_albums.children('div').bind('click',function(){
+					// var $elem = $(this);
+					// var album_name 	= 'album' + parseInt($elem.index() + 1);
+					// var $loading 	= $('<div />',{className:'loading'});
+					// $elem.append($loading);
+					// $ps_container.find('img').remove();
+					// $.get('photostack.php', {album_name:album_name} , function(data) {
+						// var items_count	= data.length;
+						// for(var i = 0; i < items_count; ++i){
+							// var item_source = data[i];
+							// var cnt 		= 0;
+							// $('<img />').load(function(){
+								// var $image = $(this);
+								// ++cnt;
+								// resizeCenterImage($image);
+								// $ps_container.append($image);
+								// var r		= Math.floor(Math.random()*41)-20;
+								// if(cnt < items_count){
+									// $image.css({
+										// '-moz-transform'	:'rotate('+r+'deg)',
+										// '-webkit-transform'	:'rotate('+r+'deg)',
+										// 'transform'			:'rotate('+r+'deg)'
+									// });
+								// }
+								// if(cnt == items_count){
+									// $loading.remove();
+									// $ps_container.show();
+									// $ps_close.show();
+									// $ps_overlay.show();
+								// }
+							// }).attr('src',item_source);
+						// }
+					// },'json');
+				// });
 				
 				/**
 				* when hovering each one of the images, 

@@ -1,11 +1,11 @@
 <div id="main-box">
 <div class="white-box">
-<h1>ÕâÊÇ±êÌâ</h1>
+<h2>æœ€æ–°å”®å‡º</h2>
 <div id="ps_slider" class="ps_slider">
 			<a class="prev disabled"></a>
 			<a class="next disabled"></a>
 			<div id="ps_albums">
-				<div class="ps_album" style="opacity:0;"><img src="resource/main/1.jpg" alt=""/><div class="ps_desc"><h2>The Night</h2><span>Top Cat! The most effectual Top Cat! Who's intellectual close friends get to call him T.C., providing it's with dignity.Top Cat! The indisputable leader!</span></div></div>
+				<div class="ps_album" style="opacity:0;"><a href="resource/main/1.jpg"><img src="resource/main/1.jpg" alt="resource/main/1.jpg"/></a><div class="ps_desc"><h2><a href="resource/main/1.jpg">ç»æµæ³•</a></h2><span>Top Cat! The most effectual Top Cat! Who's intellectual close friends get to call him T.C., providing it's with dignity.Top Cat! The indisputable leader!</span></div></div>
 				<div class="ps_album" style="opacity:0;"><img src="resource/main/2.jpg" alt=""/><div class="ps_desc"><h2>Lovely Dreams</h2><span>Abundantly fowl of you'll fly moved i evening there whales creeping very kind green. Of have after lights saying.</span></div></div>
 				<div class="ps_album" style="opacity:0;"><img src="resource/main/3.jpg" alt=""/><div class="ps_desc"><h2>Insane Art</h2><span>Also female divide fruitful wherein upon, fruitful great fourth likeness given subdue cattle deep abundantly set place night stars fill.</span></div></div>
 				<div class="ps_album" style="opacity:0;"><img src="resource/main/4.jpg" alt=""/><div class="ps_desc"><h2>Prime Time</h2><span>And did the Countenance DivineShine forth upon our clouded hills? And was Jerusalem builded here among these dark Satanic Mills?</span></div></div>

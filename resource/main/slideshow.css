@@ -1,11 +1,6 @@
-body, ul, li, h1, h2, h3{
-	margin:0;
-	padding:0;
-}
-.white-box{
+#ps_albums{
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:11px;
-	color:#fff;
 	overflow-x:hidden;
 }
 .ps_overlay{
@@ -130,7 +125,7 @@ a.ps_close:hover{
 	position:absolute;
 	top:0px;
 	text-align:center;
-	cursor:pointer;
+	/*cursor:pointer;*/
 	-moz-box-shadow:1px 1px 4px #000;
 	-webkit-box-shadow:1px 1px 4px #000;
 	box-shadow:1px 1px 4px #000;
@@ -222,3 +217,7 @@ span.reference{
 			top:15px;
 			left:15px;
 		  }  
+.ps_album a{
+color: #DDD;
+text-decoration: none;
+}
