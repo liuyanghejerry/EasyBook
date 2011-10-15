@@ -2,7 +2,7 @@
 width: 970px;
 margin: 0 auto;
 }
-
+/*1st floor*/
 .white-box{
 height:500px;
 position: relative;
@@ -11,7 +11,7 @@ margin-bottom: 12px;
 background-color: white;
 padding: 10px 15px;
 }
-
+/*slide show*/
 #slideshow {list-style:none; color:#fff}
 #slideshow span {display:none}
 #wrapper {width:506px; margin:50px auto; display:none}
@@ -35,3 +35,54 @@ padding: 10px 15px;
 #slidearea {float:left; position:relative; width:456px; margin-left:5px; height:81px; overflow:hidden}
 #slider {position:absolute; left:0; height:81px}
 #slider img {cursor:pointer; border:1px solid #666; padding:2px}
+/* 2nd floor*/
+#left-box{
+float:left;
+width:300px;
+height:500px;
+position: relative;
+border: 1px solid #E6E6E6;
+margin-bottom: 12px;
+background-color: white;
+padding: 10px 15px;
+}
+#right-box{
+float:right;
+width:590px;
+height:500px;
+position: relative;
+border: 1px solid #E6E6E6;
+margin-bottom: 12px;
+background-color: white;
+padding: 10px 15px;
+}
+.hot-list li{
+border-bottom:1px dotted #787878;
+margin-top:15px;
+}
+.hot-list a{
+color: #333;
+text-decoration: none;
+}
+.li-left {
+margin-left:17px;
+}
+.li-right {
+float:right;
+margin-right:5px;
+}
+
+#right-box .more{
+margin-top:15px;
+}
+.cover_box{width:730px; margin:0 0 10px 0; clear:both; float:left;}
+.cover_item_box{margin:15px; width:115px; float:left; height:170px;}
+.cover_item_imgbox{width:90px; height:120px; margin:10px 14px 10px 14px;}
+.cover_item_name{width:110px; margin:0 0 3px 0;  text-align:center; height:36px; }
+                 /*overflow: hidden; white-space:nowrap;  -o-text-overflow: ellipsis; text-overflow: ellipsis;}*/
+.cover_item_name a{color:#000000; text-decoration:none;}
+.cover_item_name a:hover{color:#09f; text-decoration:underline;}
+.cover_item_price{width:auto; margin:0 0 0 3px 0; text-align:center; color:#FF0000;
+                  overflow: hidden; white-space:nowrap;  -o-text-overflow: ellipsis; text-overflow: ellipsis;}
+.cover_item_price i{color:#000000; font-style:normal;}
+.cover_item_imgbox img{width:90px; height:120px; margin:0px; padding:0px;}
