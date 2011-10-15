@@ -1,5 +1,6 @@
 <div id="main-box">
 <div class="white-box">
+<a class ="more" href="#">更多...</a>
 <h2>最新售出</h2>
 <div id="ps_slider" class="ps_slider">
 			<a class="prev disabled"></a>

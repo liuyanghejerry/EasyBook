@@ -47,3 +47,7 @@ body {
 .white-box h2 {
 	margin-bottom:20px;
 }
+
+.more {
+	float:right;
+}
