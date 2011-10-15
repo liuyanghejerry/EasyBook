@@ -1,95 +1,27 @@
 <div id="main-box">
 <div class="white-box">
-<?=$hello;?>
-
-<ul id="slideshow">
-		<li>
-			<h3>TinySlideshow v1</h3>
-			<span>resource/main/orange-fish.jpg</span>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut urna. Mauris nulla. Donec nec mauris. Proin nulla dolor, bibendum et, dapibus in, euismod ut, felis.</p>
-			<a href="#"><img src="resource/main/orange-fish-thumb.jpg" alt="Orange Fish" /></a>
-		</li>
-		<li>
-			<h3>Sea Turtle</h3>
-			<span>resource/main/sea-turtle.jpg</span>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut urna. Mauris nulla. Donec nec mauris. Proin nulla dolor, bibendum et, dapibus in, euismod ut, felis.</p>
-			<img src="resource/main/sea-turtle-thumb.jpg" alt="Sea Turtle" />
-		</li>
-		<li>
-			<h3>Red Coral</h3>
-			<span>resource/main/red-coral.jpg</span>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut urna. Mauris nulla. Donec nec mauris. Proin nulla dolor, bibendum et, dapibus in, euismod ut, felis.</p>
-			<a href="#"><img src="resource/main/red-coral-thumb.jpg" alt="Red Coral" /></a>
-		</li>
-		<li>
-			<h3>Coral Reef</h3>
-			<span>resource/main/coral-reef.jpg</span>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut urna. Mauris nulla. Donec nec mauris. Proin nulla dolor, bibendum et, dapibus in, euismod ut, felis.</p>
-			<a href="#"><img src="resource/main/coral-reef-thumb.jpg" alt="Coral Reef" /></a>
-		</li>
-		<li>
-			<h3>Blue Fish</h3>
-			<span>resource/main/blue-fish.jpg</span>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut urna. Mauris nulla. Donec nec mauris. Proin nulla dolor, bibendum et, dapibus in, euismod ut, felis.</p>
-			<img src="resource/main/blue-fish-thumb.jpg" alt="Blue Fish" />
-		</li>
-		<li>
-			<h3>TinySlideshow v.2</h3>
-			<span>resource/main/yellow-fish.jpg</span>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut urna. Mauris nulla. Donec nec mauris. Proin nulla dolor, bibendum et, dapibus in, euismod ut, felis.</p>
-			<a href="#"><img src="resource/main/yellow-fish-thumb.jpg" alt="Yellow Fish" /></a>
-		</li>
-		<li>
-			<h3>Squid</h3>
-			<span>resource/main/squid.jpg</span>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut urna. Mauris nulla. Donec nec mauris. Proin nulla dolor, bibendum et, dapibus in, euismod ut, felis.</p>
-			<a href="#"><img src="resource/main/squid-thumb.jpg" alt="Squid" /></a>
-		</li>
-		<li>
-			<h3>Small Fish</h3>
-			<span>resource/main/small-fish.jpg</span>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut urna. Mauris nulla. Donec nec mauris. Proin nulla dolor, bibendum et, dapibus in, euismod ut, felis.</p>
-			<a href="#"><img src="resource/main/small-fish-thumb.jpg" alt="Small Fish" /></a>
-		</li>
-	</ul>
-	<div id="wrapper">
-		<div id="fullsize">
-			<div id="imgprev" class="imgnav" title="Previous Image"></div>
-			<div id="imglink"></div>
-			<div id="imgnext" class="imgnav" title="Next Image"></div>
-			<div id="image"></div>
-			<div id="information">
-				<h3></h3>
-				<p></p>
-			</div>
+<h1>这是标题</h1>
+<div id="ps_slider" class="ps_slider">
+			<a class="prev disabled"></a>
+			<a class="next disabled"></a>
+			<div id="ps_albums">
+				<div class="ps_album" style="opacity:0;"><img src="resource/main/1.jpg" alt=""/><div class="ps_desc"><h2>The Night</h2><span>Top Cat! The most effectual Top Cat! Who's intellectual close friends get to call him T.C., providing it's with dignity.Top Cat! The indisputable leader!</span></div></div>
+				<div class="ps_album" style="opacity:0;"><img src="resource/main/2.jpg" alt=""/><div class="ps_desc"><h2>Lovely Dreams</h2><span>Abundantly fowl of you'll fly moved i evening there whales creeping very kind green. Of have after lights saying.</span></div></div>
+				<div class="ps_album" style="opacity:0;"><img src="resource/main/3.jpg" alt=""/><div class="ps_desc"><h2>Insane Art</h2><span>Also female divide fruitful wherein upon, fruitful great fourth likeness given subdue cattle deep abundantly set place night stars fill.</span></div></div>
+				<div class="ps_album" style="opacity:0;"><img src="resource/main/4.jpg" alt=""/><div class="ps_desc"><h2>Prime Time</h2><span>And did the Countenance DivineShine forth upon our clouded hills? And was Jerusalem builded here among these dark Satanic Mills?</span></div></div>
+				<div class="ps_album" style="opacity:0;"><img src="resource/main/5.jpg" alt=""/><div class="ps_desc"><h2>House, Baby!</h2><span>You can have all the faith you want in spirits, and the afterlife, and heaven and hell, but when it comes to this world, don't be an idiot.</span></div></div>
+				<div class="ps_album" style="opacity:0;"><img src="resource/main/6.jpg" alt=""/><div class="ps_desc"><h2>Run away</h2><span>Without contraries is no progression. Attraction and repulsion, reason and energy, love and hate, are necessary to human existence.</span></div></div>
+				<div class="ps_album" style="opacity:0;"><img src="resource/main/7.jpg" alt=""/><div class="ps_desc"><h2>Longing</h2><span>So hath under years itself seasons life divided signs light were god fruitful evening a. Fruitful.</span></div></div>
+				<div class="ps_album" style="opacity:0;"><img src="resource/main/8.jpg" alt=""/><div class="ps_desc"><h2>Heartbreaks</h2><span>A light moving. Moved was abundantly created, over sixth above grass after grass.</span></div></div>
+				<div class="ps_album" style="opacity:0;"><img src="resource/main/9.jpg" alt=""/><div class="ps_desc"><h2>Fearful Water</h2><span>If the doors of perception were cleansed everything would appear to man as it is, infinite.</span></div></div>
+			</div>	
 		</div>
-		<div id="thumbnails">
-			<div id="slideleft" title="Slide Left"></div>
-			<div id="slidearea">
-				<div id="slider"></div>
-			</div>
-			<div id="slideright" title="Slide Right"></div>
+		
+		<div id="ps_overlay" class="ps_overlay" style="display:none;"></div>
+		<a id="ps_close" class="ps_close" style="display:none;"></a>
+		<div id="ps_container" class="ps_container" style="display:none;">
+			<a id="ps_next_photo" class="ps_next_photo" style="display:none;"></a>
 		</div>
-	</div>
-	<script type="text/javascript" src="resource/main/slide.js"></script>
-	<script type="text/javascript">
-	$('slideshow').style.display='none';
-	$('wrapper').style.display='block';
-	var slideshow=new TINY.slideshow("slideshow");
-	window.onload=function(){
-		slideshow.auto=true;
-		slideshow.speed=5;
-		slideshow.link="linkhover";
-		slideshow.info="information";
-		slideshow.thumbs="slider";
-		slideshow.left="slideleft";
-		slideshow.right="slideright";
-		slideshow.scrollSpeed=4;
-		slideshow.spacing=5;
-		slideshow.active="#fff";
-		slideshow.init("slideshow","image","imgprev","imgnext","imglink");
-	}
-</script>
 </div>
 
 </div>

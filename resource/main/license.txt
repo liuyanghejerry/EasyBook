@@ -1,2 +1,1 @@
-The code and images are all come from http://www.scriptiny.com/2008/12/javascript-slideshow/, which are under the creative commons license.
-For the full text of the license, please visit http://creativecommons.org/licenses/by/3.0/us/.
+This slideshow script is from http://tympanus.net/Tutorials/PhotoStack/. The changes of the script is still under the same license.

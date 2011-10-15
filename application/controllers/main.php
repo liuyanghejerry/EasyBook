@@ -14,16 +14,14 @@ class Main extends CI_Controller{
         $data['keywords'] = 'This, is, keywords';
         $data['description'] = 'This is description';
         $data['robots'] = 'This is robots part';
-		$data['javascript'] = array(' ');
-		$data['css'] = array('resource/main.css');
+		$data['javascript'] = array('resource/main/slideshow.js');
+		$data['css'] = array('resource/main.css','resource/main/slideshow.css');
         return $data;
     }
     
      function index()
     {
-         $data = array(
-            'hello' => 'My Title'
-            );
+         $data = array();
          $data = $this -> _makeHeader($data);
          $this -> load -> view('header', $data);
          $this -> load -> view('main');
