@@ -26,7 +26,7 @@ $(function() {
         width:1000,
 		top:200,
 		positionFixed:true,
-        extruderOpacity:1,
+        extruderOpacity:.8,
         onExtOpen:function(){},
         onExtContentLoad:function(){},
         onExtClose:function(){}

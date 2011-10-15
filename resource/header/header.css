@@ -28,7 +28,7 @@
 .page-head-holder {
 	position:relative;
 	padding-top:38px;
-	z-index:11000;
+	z-index:100;
 }
 .page-head-holder .logo {
 	position:absolute;
