@@ -5,11 +5,11 @@
 <meta name ="keywords" content="<?=$keywords?>">
 <meta name="description" content="<?=$description?>">
 <meta name="robots" content="<?=$robots?>">
-<link rel="stylesheet" type="text/css" media="all" href="resource/header/header.css">
+<link rel="stylesheet" type="text/css" media="all" href="<?=base_url()?>resource/header/header.css">
 <?php foreach($css as $cssitem):?>
 <link rel="stylesheet" type="text/css" media="all" href="<?=$cssitem?>">
 <?php endforeach;?>
-<script type="text/javascript" src="resource/jquery.min.js"></script>
+<script type="text/javascript" src="<?=base_url()?>resource/jquery.min.js"></script>
 <?php foreach($javascript as $jsitem):?>
 <script type="text/javascript" src="<?=$jsitem;?>"></script>
 <?php endforeach;?>
@@ -50,7 +50,7 @@
 
 </div>
 <div class="logo"> 
-<a href="#"><img src="resource/header/logo.png" width="159" height="67"></a> 
+<a href="#"><img src="<?=base_url()?>resource/header/logo.png" width="159" height="67"></a> 
 </div>
 </div>
 </div> 
