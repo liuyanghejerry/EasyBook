@@ -52,6 +52,7 @@
 
     .extruder.left.a .content{
       border-right:3px solid black;
+	  cursor:default;
     }
 
     .extruder.top .optionsPanel .panelVoice a:hover{
@@ -67,7 +68,7 @@
       background:black;
     }
 
-.extruder{position:fixed;cursor:default;background:url("extruder_blank.png");}
+.extruder{position:fixed;cursor:pointer;background:url("extruder_blank.png");}
 .extruder .header{height:27px;}
 .extruder .content{display:none;background:#000000;}
 .extruder.open .content{-moz-box-shadow:2px 0 5px #999999;-webkit-box-shadow:2px 0 5px #999999;box-shadow:2px 0 5px #999999;}
