@@ -44,6 +44,15 @@ body {
 	font:12px/20px "微软雅黑",Tahoma,Arial,Helvetica,sans-serif;
 }
 
+.white-box{
+height:500px;
+position: relative;
+border: 1px solid #E6E6E6;
+margin-bottom: 12px;
+background-color: white;
+padding: 10px 15px;
+}
+
 .white-box h2 {
 	margin-bottom:20px;
 }

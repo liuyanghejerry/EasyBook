@@ -2,15 +2,7 @@
 width: 970px;
 margin: 0 auto;
 }
-/*1st floor*/
-.white-box{
-height:500px;
-position: relative;
-border: 1px solid #E6E6E6;
-margin-bottom: 12px;
-background-color: white;
-padding: 10px 15px;
-}
+
 /*slide show*/
 #slideshow {list-style:none; color:#fff}
 #slideshow span {display:none}

@@ -19,7 +19,7 @@ class Missing extends CI_Controller{
 		$baser = base_url();
 		$data['javascript'] = array();
 		$data['css'] = array($baser.'resource/common.css',$baser.'resource/missing/missing.css',
-							$baser.'resource/footer/footer.css',$baser.'resource/main/mbExtruder.css');
+							$baser.'resource/footer/footer.css');
     }
     
      function index()
@@ -27,7 +27,7 @@ class Missing extends CI_Controller{
          $data = array();
          $this -> _makeHeader($data);
          $this -> load -> view('header', $data);
-         $this -> load -> view('missing');
+         $this -> load -> view('register');
 		 $this -> load -> view('footer');
     }
 	
