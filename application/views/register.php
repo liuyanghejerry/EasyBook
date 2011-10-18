@@ -5,25 +5,27 @@
 <?=validation_errors()?>
 <?php
 $attributes = array('id' => 'customForm');
-echo form_open('form',$attributes);
+echo form_open('register/validate',$attributes);
 ?>
 <div>
 <?php
 echo form_label('用户名','name');
 $attributes = array(
               'name'        => 'name',
-              'id'          => 'name'
+              'id'          => 'name',
+			  'value' => set_value('user')
             );
 echo form_input($attributes);
 ?>
-<span id="nameInfo">您理想的用户名，最少需要3个字符。</span>
+<span id="nameInfo">您的用户名，需要3-20个字符且仅支持字母/数字/下划线。</span>
 </div>
 <div>
 <?php
 echo form_label('电子邮箱','email');
 $attributes = array(
               'name'        => 'email',
-              'id'          => 'email'
+              'id'          => 'email',
+			  'value' => set_value('email')
             );
 echo form_input($attributes);
 ?>
@@ -38,7 +40,7 @@ $attributes = array(
             );
 echo form_password($attributes);
 ?>
-<span id="pass1Info">您的密码。最少需要6位。</span>  
+<span id="pass1Info">您的密码。最少需要6位，最长为20位。</span>  
 </div>  
 <div>
 <?php
@@ -49,7 +51,7 @@ $attributes = array(
             );
 echo form_password($attributes);
 ?>
-<span id="pass2Info">为确保您没有错误输入密码，请您再输入一次。</span>  
+<span id="pass2Info">请您再输入一次密码。</span>  
 </div>
 <div>  
 <?php
@@ -60,34 +62,7 @@ $attributes = array(
             );
 echo form_submit($attributes);
 ?>
-</div>
-<!--
-<form method="post" id="customForm" action="">  
-            <div>  
-                <label for="name">用户名</label>  
-                <input id="name" name="name" type="text" />  
-                <span id="nameInfo">您理想的用户名，最少需要3个字符。</span>  
-            </div>  
-            <div>  
-                <label for="email">电子邮箱</label>  
-                <input id="email" name="email" type="text" />  
-                <span id="emailInfo">您的电子邮箱，您将依靠它找回密码。</span>  
-            </div>  
-            <div>  
-                <label for="pass1">密码</label>  
-                <input id="pass1" name="pass1" type="password" />  
-                <span id="pass1Info">您的密码。最少需要6位。</span>  
-            </div>  
-            <div>  
-                <label for="pass2">密码确认</label>  
-                <input id="pass2" name="pass2" type="password" />  
-                <span id="pass2Info">为确保您没有错误输入密码，请您再输入一次。</span>  
-            </div>
-            <div>  
-                <input id="send" name="send" type="submit" value="注册" />  
-            </div>  
-</form>
--->  
+</div> 
 </div>
 </div>
 </div>

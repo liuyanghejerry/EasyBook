@@ -4,6 +4,16 @@ margin:0 auto;
 height:800px;
 }
 
+#success-frame {
+width:970px;
+margin:0 auto;
+height:300px;
+}
+
+#success-box {
+height:100px;
+}
+
 #customForm{
     padding: 0 10px 10px;
 	width:600px;

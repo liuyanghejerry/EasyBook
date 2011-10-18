@@ -17,7 +17,6 @@
 <body>
 
 <div class="page-top-holder">
-
 <div class="page-head-holder">
 <div class="search">
 <form action="#" method="get" id="search-sug">
@@ -46,11 +45,11 @@
 <li><a href="#">我的账户</a></li>
 </ul>
 <div class="user-bar">
-<a href="#" id="login-hook">登录</a>&nbsp;&nbsp;<a href="#">注册</a> 
+<a href="<?=site_url().'/login'?>" id="login-hook">登录</a>&nbsp;&nbsp;<a href="<?=site_url().'/register'?>">注册</a> 
 
 </div>
 <div class="logo"> 
-<a href="#"><img src="<?=base_url()?>resource/header/logo.png" width="159" height="67"></a> 
+<a href="<?=site_url()?>"><img src="<?=base_url()?>resource/header/logo.png" width="159" height="67"></a> 
 </div>
 </div>
 </div> 

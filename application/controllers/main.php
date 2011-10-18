@@ -31,15 +31,5 @@ class Main extends CI_Controller{
          $this -> load -> view('main');
 		 $this -> load -> view('footer');
     }
-	
-	function index2()
-    {
-         $data = array();
-         $data = $this -> _makeHeader($data);
-         $this -> load -> view('header', $data);
-         $this -> load -> view('main');
-		 $this -> load -> view('footer');
-    }
-    
     }
 ?>

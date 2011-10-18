@@ -33,5 +33,45 @@ class Register extends CI_Controller{
 		 $this -> load -> view('footer');
     }
 	
+	function validate()
+	{
+		 $rules = array(
+               array(
+                     'field'   => 'name', 
+                     'label'   => '用户名', 
+                     'rules'   => 'trim|required|min_length[4]|max_length[20]|xss_clean|alpha_dash'
+                  ),
+               array(
+                     'field'   => 'pass1', 
+                     'label'   => '密码', 
+                     'rules'   => 'required'
+                  ),
+               array(
+                     'field'   => 'pass2', 
+                     'label'   => '密码确认', 
+                     'rules'   => 'required|matches[pass1]'
+                  ),   
+               array(
+                     'field'   => 'email', 
+                     'label'   => '电子邮件', 
+                     'rules'   => 'trim|required|valid_email'
+                  )
+            );
+
+		 $this->form_validation->set_rules($rules);
+		 
+		 if (!$this->form_validation->run())
+		  {
+		   $this->load->view('register');
+		  }
+		  else
+		  {
+		   $data = array();
+           $this -> _makeHeader($data);
+           $this -> load -> view('header', $data);
+           $this->load->view('register-success');
+		   $this -> load -> view('footer');
+		  }
     }
+}
 ?>
