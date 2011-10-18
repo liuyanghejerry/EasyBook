@@ -27,7 +27,7 @@ class Missing extends CI_Controller{
          $data = array();
          $this -> _makeHeader($data);
          $this -> load -> view('header', $data);
-         $this -> load -> view('register');
+         $this -> load -> view('missing');
 		 $this -> load -> view('footer');
     }
 	
