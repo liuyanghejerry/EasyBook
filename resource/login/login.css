@@ -1,0 +1,110 @@
+#frame {
+width:970px;
+margin:0 auto;
+height:300px;
+}
+
+#login-box {
+height:230px;
+}
+
+.warning {
+margin: auto;
+text-align: center;
+border: 1px solid #CD0A0A;
+width: 500px;
+background-color: #E14F1C;
+color: white;
+padding: 7px;
+margin-bottom: 10px;
+}
+
+#success-frame {
+width:970px;
+margin:0 auto;
+height:300px;
+}
+
+#success-box {
+height:100px;
+}
+
+#customForm{
+    padding: 0 10px 10px;
+	width:600px;
+	margin:auto;
+}
+#customForm label{
+    display: block;
+    color: #797979;
+    font-weight: 700;
+    line-height: 1.4em;
+}
+#customForm input{
+    width: 220px;
+    padding: 6px;
+    color: #949494;
+    font-family: Arial,  Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #cecece;
+}
+#customForm input.error{
+    background: #f8dbdb;
+    border-color: #e77776;
+}
+#customForm textarea{
+    width: 550px;
+    height: 80px;
+    padding: 6px;
+    color: #adaeae;
+    font-family: Arial,  Verdana, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 12px;
+    border: 1px solid #cecece;
+}
+#customForm textarea.error{
+    background: #f8dbdb;
+    border-color: #e77776;
+}
+#customForm div{
+    margin-bottom: 15px;
+}
+#customForm div span{
+    margin-left: 10px;
+    color: #b1b1b1;
+    font-size: 13px;
+}
+#customForm div span.error{
+    color: #e46c6e;
+	font-weight: bold;
+}
+#customForm #send{
+    background: #6f9ff1;
+    color: #fff;
+    font-weight: 700;
+    font-style: normal;
+    border: 0;
+    cursor: pointer;
+}
+#customForm #send:hover{
+    background: #79a7f1;
+}
+#error{
+    margin-bottom: 20px;
+    border: 1px solid #efefef;
+}
+#error ul{
+    list-style: square;
+    padding: 5px;
+    font-size: 11px;
+}
+#error ul li{
+    list-style-position: inside;
+    line-height: 1.6em;
+}
+#error ul li strong{
+    color: #e46c6d;
+}
+#error.valid ul li strong{
+    color: #93d72e;
+}
