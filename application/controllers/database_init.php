@@ -30,14 +30,14 @@ class Database_init extends CI_Controller{
          $data = array();
          $this -> _makeHeader($data);
          $this -> load -> view('header', $data);
-         echo 'let\'s roll it up!';
+		 $this -> load -> view('database_init');
 		 $this -> load -> view('footer');
 		 $this->_createTable();
     }
 	 
 	 function _createTable()
 	{
-		 
+		 //user info
 		 $fields = array(
                         'user_id' => array(
                                                  'type' => 'INT',
@@ -62,6 +62,34 @@ class Database_init extends CI_Controller{
 		 $this->dbforge->add_key('user_id', TRUE);
 		 $this->dbforge->add_key('user_name');
 		 $this->dbforge->create_table('bk_users',TRUE);
+		 
+		 //CAPCHA
+		 $fields = array(
+                        'captcha_id' => array(
+                                                 'type' => 'BIGINT',
+                                                 'constraint' => 13, 
+                                                 'unsigned' => TRUE,
+                                                 'auto_increment' => TRUE
+                                          ),
+                        'captcha_time' => array(
+                                                 'type' => 'INT',
+                                                 'constraint' => '10',
+												 'unsigned' => TRUE
+                                          ),
+                        'ip_address' => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '16',
+												 'default' => '0'
+                                          ),
+                        'word' => array(
+                                                 'type' => 'VARCHAR',
+												 'constraint' => '20',
+                                          ),
+         );
+		 $this->dbforge->add_field($fields);
+		 $this->dbforge->add_key('captcha_id', TRUE);
+		 $this->dbforge->add_key('word');
+		 $this->dbforge->create_table('captcha',TRUE);
 	}
 	
     }

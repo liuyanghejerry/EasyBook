@@ -4,6 +4,17 @@ margin:0 auto;
 height:800px;
 }
 
+.warning {
+margin: auto;
+text-align: center;
+border: 1px solid #CD0A0A;
+width: 500px;
+background-color: #E14F1C;
+color: white;
+padding: 7px;
+margin-bottom: 10px;
+}
+
 #success-frame {
 width:970px;
 margin:0 auto;

@@ -53,6 +53,21 @@ echo form_password($attributes);
 ?>
 <span id="pass2Info">请您再输入一次密码。</span>  
 </div>
+<div>
+<?php
+echo form_label('验证码','capcha');
+$attributes = array(
+              'name'        => 'capchaPic',
+              'id'          => 'capchaPic',
+			  'src'			=> base_url().'resource/capcha/'.$capTime.'.jpg'
+            );
+
+echo form_input(array('name'=>'capcha','id'=>'capcha'));
+//echo img($attributes);
+?>
+<span id="capchaInfo">请您输入图中的文字:</span>
+<?=img($attributes)?>
+</div>
 <div>  
 <?php
 $attributes = array(
