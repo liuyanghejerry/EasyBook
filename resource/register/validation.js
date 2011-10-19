@@ -86,7 +86,7 @@ $(document).ready(function(){
 			pass1.removeClass("error");
 			pass1Info.text("");
 			pass1Info.removeClass("error");
-			validatePass2();
+			//validatePass2();
 			return true;
 		}
 	}
@@ -96,7 +96,7 @@ $(document).ready(function(){
 		//are NOT valid
 		if( pass1.val() != pass2.val() ){
 			pass2.addClass("error");
-			pass2Info.text("您两次输入的密码并不相同，请检查重新输入");
+			pass2Info.text("您两次输入的密码并不相同");
 			pass2Info.addClass("error");
 			return false;
 		}

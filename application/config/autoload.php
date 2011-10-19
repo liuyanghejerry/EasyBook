@@ -111,6 +111,9 @@ $autoload['language'] = array();
 
 $autoload['model'] = array();
 
+//appending config
+$config['global_xss_filtering'] = TRUE;
+$config['csrf_protection'] = TRUE;
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */

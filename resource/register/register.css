@@ -72,6 +72,7 @@ height:100px;
 }
 #customForm div span.error{
     color: #e46c6e;
+	font-weight: bold;
 }
 #customForm #send{
     background: #6f9ff1;

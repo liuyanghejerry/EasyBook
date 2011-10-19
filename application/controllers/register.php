@@ -85,6 +85,14 @@ class Register extends CI_Controller{
             );
 
 		 $this->form_validation->set_rules($rules);
+		 $this->form_validation->set_message('required', '您的%s没有填写，请补充该内容。');
+		$this->form_validation->set_message('min_length', '您的%s长度太小。');
+		$this->form_validation->set_message('max_length', '您的%s长度太大。');
+		$this->form_validation->set_message('valid_email', '您的%s不上一个合法的电子邮件地址。');
+		$this->form_validation->set_message('alpha_dash', '%s当中仅允许英文字母、数字、下划线、英文破折号。');
+		$this->form_validation->set_message('matches', '您的%s填写与密码并不一致。');
+		$this->form_validation->set_message('min_length', '您的%s长度太小。');
+		$this->form_validation->set_message('min_length', '您的%s长度太小。');
 		 
 		 if (!$this->form_validation->run())
 		  {
@@ -99,14 +107,15 @@ class Register extends CI_Controller{
 		   $this -> load -> view('footer');
 		  }
     }
+	
 	function _capchaValidate($cc)
 	 {
 		$this->form_validation->set_message('_capchaValidate', '您输入的%s有误，请重新输入。');
-		$expiration = time()-7200; // 2小时限制
-		$this->db->query("DELETE FROM captcha WHERE captcha_time < ".$expiration); 
+		$expiration = time()-600; // 2小时限制
+		$this->db->query("DELETE FROM `captcha` WHERE `captcha_time` < ".$expiration); 
 
 		// 然后再看是否有验证码存在:
-		$sql = "SELECT COUNT(*) AS count FROM captcha WHERE word = ? AND ip_address = ? AND captcha_time > ?";
+		$sql = "SELECT COUNT(*) AS count FROM `captcha` WHERE `word` = ? AND `ip_address` = ? AND `captcha_time` > ?";
 		$binds = array($cc, $this->input->ip_address(), $expiration);
 		$query = $this->db->query($sql, $binds);
 		$row = $query->row();
