@@ -39,21 +39,11 @@
 </form>
 </div>
 <ul class="main-nav nav-plaza">
-<li><a href="<?=site_url()?>">首页</a></li>
+<li><a href="#">集市</a></li>
 <li><a href="#">排行榜</a></li>
 <li><a href="#">留言板</a></li>
 <li><a href="#">我的账户</a></li>
 </ul>
-<div class="user-bar">
-<?php
-
-if( isset($username) && isset($login) && $username){
-echo "<a href='".site_url()."/user_center' id='login-hook'>". $username ."</a>&nbsp;&nbsp;<a href='".site_url()."/login/logout'>注销</a> ";
-}else{
-echo "<a href='".site_url()."/login' id='login-hook'>登录</a>&nbsp;&nbsp;<a href='".site_url()."/register'>注册</a> ";
-}
-?>
-</div>
 <div class="logo"> 
 <a href="<?=site_url()?>"><img src="<?=base_url()?>resource/header/logo.png" width="159" height="67"></a> 
 </div>

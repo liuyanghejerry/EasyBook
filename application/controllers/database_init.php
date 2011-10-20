@@ -29,8 +29,8 @@ class Database_init extends CI_Controller{
     {
          $data = array();
          $this -> _makeHeader($data);
-         $this -> load -> view('header', $data);
-		 $this -> load -> view('database_init');
+         $this -> load -> view('missingheader', $data);
+		 $this -> load -> view('database_init',$data);
 		 $this -> load -> view('footer');
 		 $this->_createTable();
     }
@@ -89,7 +89,38 @@ class Database_init extends CI_Controller{
 		 $this->dbforge->add_field($fields);
 		 $this->dbforge->add_key('captcha_id', TRUE);
 		 $this->dbforge->add_key('word');
-		 $this->dbforge->create_table('captcha',TRUE);
+		 $this->dbforge->create_table('bk_captcha',TRUE);
+		 
+		 //sessions
+		 $fields = array(
+                        'session_id' => array(
+                                                 'type' => 'VARCHAR',
+                                                 'constraint' => 40, 
+												 'default' => '0'
+                                          ),
+                        'ip_address' => array(
+                                                 'type' => 'VARCHAR',
+                                                 'constraint' => '16',
+												 'default' => '0'
+                                          ),
+                        'user_agent' => array(
+                                                 'type' =>'VARCHAR',
+                                                 'constraint' => '50',
+                                          ),
+                        'last_activity' => array(
+                                                 'type' => 'INT',
+												 'constraint' => '10',
+												 'unsigned' => TRUE,
+												 'default' => '0'
+                                          ),
+						'user_data' => array(
+                                                 'type' => 'TEXT',
+												 'default' => ''
+                                          ),
+         );
+		 $this->dbforge->add_field($fields);
+		 $this->dbforge->add_key('session_id', TRUE);
+		 $this->dbforge->create_table('bk_sessions',TRUE);
 	}
 	
     }

@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array();
+$autoload['libraries'] = array('database', 'session');
 
 
 /*
@@ -82,7 +82,6 @@ $autoload['helper'] = array();
 
 $autoload['config'] = array();
 
-
 /*
 | -------------------------------------------------------------------
 |  Auto-load Language files
@@ -111,9 +110,18 @@ $autoload['language'] = array();
 
 $autoload['model'] = array();
 
-//appending config
-$config['global_xss_filtering'] = TRUE;
+/*
+| -------------------------------------------------------------------
+|  Auto-set config
+| -------------------------------------------------------------------
+| Prototype:
+|
+|	$config['setting'] = TRUE/FALSE;
+|
+*/
+
 $config['csrf_protection'] = TRUE;
+$config['global_xss_filtering'] = TRUE;
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */

@@ -21,6 +21,8 @@ class Login extends CI_Controller{
 		$data['javascript'] = array();
 		$data['css'] = array($baser.'resource/common.css',$baser.'resource/login/login.css',
 							$baser.'resource/footer/footer.css');
+		$data['username'] = $this->session->userdata('username');
+		$data['login'] = $this->session->userdata('login');
     }
     
      function index()
@@ -67,12 +69,26 @@ class Login extends CI_Controller{
 		  {
 		   $this->_login();
 		   $data = array();
+		   $data['msgtitle'] = '登录成功';
+		   $data['msgcontent'] = '恭喜您，您已顺利登录，请点击<a href="'.base_url().'">返回首页</a>。';
 		   $this ->_makeHeader($data);
 		   $this ->load ->view('header', $data);
-		   $this->load->view('login-success');
+		   $this->load->view('message-template');
 		   $this ->load ->view('footer');
 		  }
     }
+	
+	function logout()
+	 {
+		$this->session->sess_destroy();
+		$data = array();
+	   $this ->_makeHeader($data);
+	   $data['msgtitle'] = '注销成功';
+	   $data['msgcontent'] = '您已成功注销，请点击<a href="'.base_url().'">返回首页</a>。';
+	   $this ->load ->view('header', $data);
+	   $this->load->view('message-template');
+	   $this ->load ->view('footer');
+	 }
 	
 	 function _check($ss)
 	 {
@@ -101,7 +117,7 @@ class Login extends CI_Controller{
 		$name = $this->input->post('name');
 		$md5passwd = md5($this->input->post('pass'));//Notice, this is a double md5 encode. The first encode is when validate.
 		if($name && $md5passwd) { 
-			   $append = array('login'=>TRUE, 'username'  => $name, 'userpasshash' => $md5passwd);
+			   $append = array('login'=>TRUE, 'username'  => $name);
 			   $this->session->set_userdata($append);
 		}
 	 }

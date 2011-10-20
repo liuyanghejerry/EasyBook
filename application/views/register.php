@@ -13,7 +13,7 @@ echo form_label('用户名','name');
 $attributes = array(
               'name'        => 'name',
               'id'          => 'name',
-			  'value' => set_value('user')
+			  'value' => set_value('name')
             );
 echo form_input($attributes);
 ?>

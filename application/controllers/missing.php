@@ -4,11 +4,11 @@ class Missing extends CI_Controller{
      function __construct()
     {
          parent :: __construct();
-         $this -> load -> helper('html');
+         $this ->load ->helper('html');
 		 $this->load->helper('url');
 		 //$this->load->library('javascript');
 		 //$this->output->cache(5);
-         }
+    }
     
      function _makeHeader(&$data)
     {
@@ -26,7 +26,7 @@ class Missing extends CI_Controller{
     {
          $data = array();
          $this -> _makeHeader($data);
-         $this -> load -> view('header', $data);
+         $this -> load -> view('missingheader', $data);
          $this -> load -> view('missing');
 		 $this -> load -> view('footer');
     }

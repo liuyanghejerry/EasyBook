@@ -1,0 +1,1 @@
+<div id="msg-frame"><div class="white-box" id="msg-box"><h2><?=$msgtitle?></h2><div style="margin:auto"><span><?=$msgcontent?></span></div></div></div>

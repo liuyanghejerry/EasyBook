@@ -1,6 +1,11 @@
 html {
-	color:#333;
-	background:#FFF;
+	color:#666;
+	overflow-y:scroll;
+	background-color: #323232;
+}
+body {
+	font:12px/20px "微软雅黑",Tahoma,Arial,Helvetica,sans-serif;
+	background:url(site_bg.jpg);
 }
 h1,h2,h3,h4,h5 {
 	color:#333;
@@ -35,15 +40,6 @@ input,button,textarea,select,optgroup,option {
 input,button,textarea,select {
 	*font-size:100%;
 }
-html {
-	color:#666;
-	overflow-y:scroll;
-	background:url(site_bg.jpg) no-repeat;
-}
-body {
-	font:12px/20px "微软雅黑",Tahoma,Arial,Helvetica,sans-serif;
-}
-
 .white-box{
 height:500px;
 position: relative;
@@ -59,4 +55,14 @@ padding: 10px 15px;
 
 .more {
 	float:right;
+}
+
+#msg-frame {
+width:970px;
+margin:0 auto;
+height:300px;
+}
+
+#msg-box {
+height:100px;
 }

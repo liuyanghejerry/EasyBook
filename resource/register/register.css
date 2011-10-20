@@ -1,7 +1,6 @@
 #frame {
 width:970px;
 margin:0 auto;
-height:800px;
 }
 
 .warning {
@@ -13,16 +12,6 @@ background-color: #E14F1C;
 color: white;
 padding: 7px;
 margin-bottom: 10px;
-}
-
-#success-frame {
-width:970px;
-margin:0 auto;
-height:300px;
-}
-
-#success-box {
-height:100px;
 }
 
 #customForm{

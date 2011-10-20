@@ -21,17 +21,22 @@ class Register extends CI_Controller{
 		$data['javascript'] = array($baser.'resource/register/validation.js');
 		$data['css'] = array($baser.'resource/common.css',$baser.'resource/register/register.css',
 							$baser.'resource/footer/footer.css');
+		$data['username'] = $this->session->userdata('username');
+		$data['login'] = $this->session->userdata('login');
     }
     
      function index()
     {
 		$this->form_validation->set_error_delimiters('<div class="warning"><p>', '</p></div>');
 		$baser = base_url();
+		srand((double)microtime()*1000000);
+		$randval = rand(10000,99999);
 		$vals = array(
 			'img_path' => './resource/capcha/',
 			'img_url' => $baser.'resource/capcha/',
 			'img_width' => '115',
-			'img_height' => '30'
+			'img_height' => '30',
+			'word' => $randval		
 			);
 
 		$cap = create_captcha($vals);
@@ -42,7 +47,7 @@ class Register extends CI_Controller{
 			'word' => $cap['word']
 			);
 
-		$query = $this->db->insert_string('captcha', $data1);
+		$query = $this->db->insert_string('bk_captcha', $data1);
 		$this->db->query($query);
 		$data = array();
          $this -> _makeHeader($data);
@@ -60,22 +65,22 @@ class Register extends CI_Controller{
                array(
                      'field'   => 'name', 
                      'label'   => '用户名', 
-                     'rules'   => 'trim|required|min_length[4]|max_length[20]|xss_clean|alpha_dash'
+                     'rules'   => 'trim|required|min_length[4]|max_length[20]|xss_clean|alpha_dash|callback__checkUsername'
                   ),
                array(
                      'field'   => 'pass1', 
                      'label'   => '密码', 
-                     'rules'   => 'required|min_length[6]|max_length[20]'
+                     'rules'   => 'required|min_length[6]|max_length[20]|md5'
                   ),
                array(
                      'field'   => 'pass2', 
                      'label'   => '密码确认', 
-                     'rules'   => 'required|matches[pass1]'
+                     'rules'   => 'required|matches[pass1]|md5'
                   ),   
                array(
                      'field'   => 'email', 
                      'label'   => '电子邮件', 
-                     'rules'   => 'trim|required|valid_email'
+                     'rules'   => 'trim|required|valid_email|callback__checkUserEmail'
                   ),
 			   array(
                      'field'   => 'capcha', 
@@ -101,21 +106,24 @@ class Register extends CI_Controller{
 		  else
 		  {
 		   $data = array();
-           $this -> _makeHeader($data);
-           $this -> load -> view('header', $data);
-           $this->load->view('register-success');
-		   $this -> load -> view('footer');
+		   $data['msgtitle'] = '注册成功';
+		   $data['msgcontent'] = '恭喜您，您的注册已经完成，请点击<a href="'.base_url().'">返回首页</a>。';
+           $this ->_makeHeader($data);
+           $this ->load ->view('header', $data);
+           $this->load->view('message-template');
+		   $this ->load ->view('footer');
+		   $this->_register();
 		  }
     }
 	
 	function _capchaValidate($cc)
 	 {
 		$this->form_validation->set_message('_capchaValidate', '您输入的%s有误，请重新输入。');
-		$expiration = time()-600; // 2小时限制
-		$this->db->query("DELETE FROM `captcha` WHERE `captcha_time` < ".$expiration); 
+		$expiration = time()-600; // 10分钟限制
+		$this->db->query("DELETE FROM `bk_captcha` WHERE `captcha_time` < ".$expiration); 
 
 		// 然后再看是否有验证码存在:
-		$sql = "SELECT COUNT(*) AS count FROM `captcha` WHERE `word` = ? AND `ip_address` = ? AND `captcha_time` > ?";
+		$sql = "SELECT COUNT(*) AS count FROM `bk_captcha` WHERE `word` = ? AND `ip_address` = ? AND `captcha_time` > ?";
 		$binds = array($cc, $this->input->ip_address(), $expiration);
 		$query = $this->db->query($sql, $binds);
 		$row = $query->row();
@@ -124,7 +132,53 @@ class Register extends CI_Controller{
 		{
 			return FALSE;
 		}else
-		return TRUE;
+			return TRUE;
+	 }
+	 
+	 function _checkUsername($name)
+	 {
+		$this->form_validation->set_message('_capchaValidate', '您的用户名%s已被注册，请换一个试试。');
+		$sql = "SELECT COUNT(*) AS count FROM `bk_users` WHERE `user_name` = ?";
+		$binds = array($name);
+		$query = $this->db->query($sql, $binds);
+		$row = $query->row();
+		if ($row->count != 0)
+		{
+			return FALSE;
+		}else{
+			return TRUE;
+		}
+	 }
+	 
+	 function _checkUserEmail($email)
+	 {
+		$this->form_validation->set_message('_checkUserEmail', '您的电子电子邮箱%s已被注册，请换一个试试。');
+		$sql = "SELECT COUNT(*) AS count FROM `bk_users` WHERE `user_email` = ?";
+		$binds = array($email);
+		$query = $this->db->query($sql, $binds);
+		$row = $query->row();
+		if ($row->count != 0)
+		{
+			return FALSE;
+		}else{
+			return TRUE;
+		}
+	 }
+	 
+	 function _register()
+	 {
+		$name = $this->input->post('name');
+		$md5passwd = md5($this->input->post('pass1'));//Notice, this is a double md5 encode. The first encode is when validate.
+		$email = $this->input->post('email');
+		if($name && $md5passwd && $email) {
+			$data = array(
+						'user_name' => $name,
+						'user_passhash' => $md5passwd,
+						'user_email' => $email
+					);
+			$query = $this->db->insert_string('bk_users', $data);
+			$this->db->query($query);
+		}
 	 }
 	}
 ?>

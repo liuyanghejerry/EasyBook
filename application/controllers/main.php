@@ -21,6 +21,8 @@ class Main extends CI_Controller{
 								base_url().'resource/main/mbExtruder.js');
 		$data['css'] = array(base_url().'resource/common.css',base_url().'resource/main/main.css',base_url().'resource/main/slideshow.css',
 							base_url().'resource/footer/footer.css',base_url().'resource/main/mbExtruder.css');
+		$data['username'] = $this->session->userdata('username');
+		$data['login'] = $this->session->userdata('login');
     }
     
      function index()
