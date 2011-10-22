@@ -39,7 +39,7 @@
 </form>
 </div>
 <ul class="main-nav nav-plaza">
-<li><a href="#">集市</a></li>
+<li><a href="<?=site_url()?>">首页</a></li>
 <li><a href="#">排行榜</a></li>
 <li><a href="#">留言板</a></li>
 <li><a href="#">我的账户</a></li>
