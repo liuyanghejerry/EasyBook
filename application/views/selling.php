@@ -2,15 +2,11 @@
 <div class="white-box" id="selling-nav">
 <h2>其它专业</h2>
 <ul>
-<li>+ <a href='#'>123</a></li>
-<li>+ <a href='#'>123</a></li>
-<li>+ <a href='#'>123</a></li>
-<li>+ <a href='#'>123</a></li>
-<li>+ <a href='#'>123</a></li>
-<li>+ <a href='#'>123</a></li>
+<?php foreach($subjects as $item):?>
+<li>+ <a href='<?=site_url().'/selling/page/'.$item['collage_id'].'/'.$item['subject_id']?>'><?=$item['subject_name']?></a></li>
+<?php endforeach;?>	
 </ul>
 </div>
-
 <div class="white-box" id="selling-box">
 <h2>最新售出</h2>
 <div class="container">
@@ -23,7 +19,7 @@
                             <div class="st-content">
 							<div class="boxart-slot">
 							<!--boxart of book -->
-							<img src="<?=base_url()?><?=$item['book_boxart']?>"/>
+							<img src="<?=base_url().$item['book_boxart']?>"/>
 							</div>
 							<div>
 								<div class="info-slot">
@@ -64,15 +60,12 @@
             });
         </script>
 </div>
-<div class="white-box" id="selling-nav">
+<div class="white-box" id="selling-nav2">
 <h2>其它学院</h2>
 <ul>
-<li>+ <a href='#'>123</a></li>
-<li>+ <a href='#'>123</a></li>
-<li>+ <a href='#'>123</a></li>
-<li>+ <a href='#'>123</a></li>
-<li>+ <a href='#'>123</a></li>
-<li>+ <a href='#'>123</a></li>
+<?php foreach($collages as $item):?>
+<li>+ <a href='<?=site_url().'/selling/page/'.$item['collage_id'].'/'.$item['collage_firstsub']?>'><?=$item['collage_name']?></a></li>
+<?php endforeach;?>	
 </ul>
 </div>
 </div>

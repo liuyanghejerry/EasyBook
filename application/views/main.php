@@ -1,21 +1,24 @@
 <div id="main-box">
 <div class="white-box">
 <div id="extruderLeft" class="a {title:'图书分类', url:'<?=base_url()?>static/categories.html'}"></div>
-<a class ="more" href="#">更多-></a>
+<a class ="more" href="<?=site_url().'/selling'?>">更多-></a>
 <h2>最新售出</h2>
 <div id="ps_slider" class="ps_slider">
 			<a class="prev disabled"></a>
 			<a class="next disabled"></a>
 			<div id="ps_albums">
-				<div class="ps_album" style="opacity:0;"><a href="<?=base_url()?>resource/main/1.jpg"><img src="<?=base_url()?>resource/main/1.jpg" alt="resource/main/1.jpg"/></a><div class="ps_desc"><h2><a href="<?=base_url()?>resource/main/1.jpg">经济法</a></h2><span>Top Cat! The most effectual Top Cat! Who's intellectual close friends get to call him T.C., providing it's with dignity.Top Cat! The indisputable leader!</span></div></div>
-				<div class="ps_album" style="opacity:0;"><img src="<?=base_url()?>resource/main/2.jpg" alt=""/><div class="ps_desc"><h2>Lovely Dreams</h2><span>Abundantly fowl of you'll fly moved i evening there whales creeping very kind green. Of have after lights saying.</span></div></div>
-				<div class="ps_album" style="opacity:0;"><img src="<?=base_url()?>resource/main/3.jpg" alt=""/><div class="ps_desc"><h2>Insane Art</h2><span>Also female divide fruitful wherein upon, fruitful great fourth likeness given subdue cattle deep abundantly set place night stars fill.</span></div></div>
-				<div class="ps_album" style="opacity:0;"><img src="<?=base_url()?>resource/main/4.jpg" alt=""/><div class="ps_desc"><h2>Prime Time</h2><span>And did the Countenance DivineShine forth upon our clouded hills? And was Jerusalem builded here among these dark Satanic Mills?</span></div></div>
-				<div class="ps_album" style="opacity:0;"><img src="<?=base_url()?>resource/main/5.jpg" alt=""/><div class="ps_desc"><h2>House, Baby!</h2><span>You can have all the faith you want in spirits, and the afterlife, and heaven and hell, but when it comes to this world, don't be an idiot.</span></div></div>
-				<div class="ps_album" style="opacity:0;"><img src="<?=base_url()?>resource/main/6.jpg" alt=""/><div class="ps_desc"><h2>Run away</h2><span>Without contraries is no progression. Attraction and repulsion, reason and energy, love and hate, are necessary to human existence.</span></div></div>
-				<div class="ps_album" style="opacity:0;"><img src="<?=base_url()?>resource/main/7.jpg" alt=""/><div class="ps_desc"><h2>Longing</h2><span>So hath under years itself seasons life divided signs light were god fruitful evening a. Fruitful.</span></div></div>
-				<div class="ps_album" style="opacity:0;"><img src="<?=base_url()?>resource/main/8.jpg" alt=""/><div class="ps_desc"><h2>Heartbreaks</h2><span>A light moving. Moved was abundantly created, over sixth above grass after grass.</span></div></div>
-				<div class="ps_album" style="opacity:0;"><img src="<?=base_url()?>resource/main/9.jpg" alt=""/><div class="ps_desc"><h2>Fearful Water</h2><span>If the doors of perception were cleansed everything would appear to man as it is, infinite.</span></div></div>
+			<?php foreach($selling as $item):?>
+				<div class="ps_album" style="opacity:0;">
+				<a href="<?=base_url().$item['book_boxart']?>"><img src="<?=base_url().$item['book_boxart']?>" alt=""/></a>
+				<div class="ps_desc">
+				<h2><a href="<?=base_url().$item['book_boxart']?>"><?=$item['book_name']?></a></h2>
+				<span>ISBN：<?=$item['book_isbn']?></span>
+				<span>作者：<?=$item['book_author']?></span>
+				<span>原价：<?=$item['book_oprice']?></span>
+				<span>现价：<?=$item['book_nprice']?></span>
+				</div>
+				</div>
+			<?php endforeach;?>	
 			</div>	
 </div>
 </div>

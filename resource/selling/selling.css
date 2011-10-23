@@ -102,6 +102,15 @@ height:auto;
 #selling-nav li {
 margin:5px 0 0 2px;
 }
+#selling-nav2 {
+width:200px;
+float:left;
+height:auto;
+clear:left;
+}
+#selling-nav2 li {
+margin:5px 0 0 2px;
+}
 .frame {
 width:980px;
 margin:auto;

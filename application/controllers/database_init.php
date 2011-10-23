@@ -134,6 +134,12 @@ class Database_init extends CI_Controller{
                                                  'type' => 'VARCHAR',
                                                  'constraint' => '30'
                                           ),
+						'collage_firstsub' => array(
+                                                 'type' => 'INT',
+                                                 'constraint' => 5, 
+                                                 'unsigned' => TRUE,
+                                                 'auto_increment' => TRUE
+                                          ),
          );
 		 $this->dbforge->add_field($fields);
 		 $this->dbforge->add_key('collage_id', TRUE);
