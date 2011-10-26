@@ -9,9 +9,9 @@
 			<div id="ps_albums">
 			<?php foreach($selling as $item):?>
 				<div class="ps_album" style="opacity:0;">
-				<a href="<?=base_url().$item['book_boxart']?>"><img src="<?=base_url().$item['book_boxart']?>" alt=""/></a>
+				<a href="<?=site_url().'/selling/single/'.$item['selling_id']?>"><img src="<?=base_url().$item['book_boxart']?>" alt=""/></a>
 				<div class="ps_desc">
-				<h2><a href="<?=base_url().$item['book_boxart']?>"><?=$item['book_name']?></a></h2>
+				<h2><a href="<?=site_url().'/selling/single/'.$item['selling_id']?>"><?=$item['book_name']?></a></h2>
 				<span>ISBN：<?=$item['book_isbn']?></span>
 				<span>作者：<?=$item['book_author']?></span>
 				<span>原价：<?=$item['book_oprice']?></span>

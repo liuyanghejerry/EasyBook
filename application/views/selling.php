@@ -2,9 +2,14 @@
 <div class="white-box" id="selling-nav">
 <h2>其它专业</h2>
 <ul>
-<?php foreach($subjects as $item):?>
-<li>+ <a href='<?=site_url().'/selling/page/'.$item['collage_id'].'/'.$item['subject_id']?>'><?=$item['subject_name']?></a></li>
-<?php endforeach;?>	
+<?php if(isset($subjects)) {
+foreach($subjects as $item){
+echo "<li>+ <a href='".site_url()."/selling/page/".$item['collage_id']."/".$item['subject_id']."'>".$item['subject_name']."</a></li>";
+}
+if(isset($subjects[0]['collage_id']))echo "<li>+ <a href='".site_url()."/selling/page/".$subjects[0]['collage_id']."/0'>全部</a></li>";
+}else{
+echo "<li>+ <b>全部</b></li>";
+} ?>
 </ul>
 </div>
 <div class="white-box" id="selling-box">
@@ -51,21 +56,25 @@
 			</div>
         </div>
         <script type="text/javascript">
-            $(function() {
-			
+            $(function() {		
 				$('#st-accordion').accordion({
-					oneOpenedItem	: true
+					//oneOpenedItem	: true
 				});
-				
             });
         </script>
 </div>
 <div class="white-box" id="selling-nav2">
 <h2>其它学院</h2>
 <ul>
-<?php foreach($collages as $item):?>
-<li>+ <a href='<?=site_url().'/selling/page/'.$item['collage_id'].'/'.$item['collage_firstsub']?>'><?=$item['collage_name']?></a></li>
-<?php endforeach;?>	
+<li>+ <a href='<?=site_url()."/selling"?>'>全部</a></li>
+<?php 
+if(isset($collages)){
+foreach($collages as $item){
+//echo "<li>+ <a href='".site_url()."/selling/page/".$item['collage_id']."/".$item['collage_firstsub']."'>".$item['collage_name']."</a></li>";
+echo "<li>+ <a href='".site_url()."/selling/page/".$item['collage_id']."/0'>".$item['collage_name']."</a></li>";
+}
+}
+?>	
 </ul>
 </div>
 </div>

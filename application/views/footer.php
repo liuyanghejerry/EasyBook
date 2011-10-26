@@ -27,7 +27,7 @@
             <div class="footer_item">
                 <h2 class="footer_item_title">快捷方式</h2>
                 <ul>
-                    <li><a href="#">所有出售</a></li>
+                    <li><a href="<?=site_url().'/selling'?>">所有出售</a></li>
                     <li><a href="#">所有求购</a></li>
                     <li><a href="#">管理入口</a></li>
                 </ul>
