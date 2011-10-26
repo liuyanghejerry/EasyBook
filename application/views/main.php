@@ -40,62 +40,19 @@ $(function() {
 <div class="white-box" id="left-box">
 <h2>最新求购</h2>
 <ul class="hot-list">
+<?php foreach($requesting as $item):?>
 <li>
-<h3><a href="#">《经济法》</a></h3>
+<h3><a href="<?=site_url().'/requesting/single/'.$item['requesting_id']?>"><?=$item['book_name']?></a></h3>
 <div>
-<span class="li-left">出版社</span><span class="li-right">人民教育出版社</span>
+<span class="li-left">出版社</span><span class="li-right"><?=$item['book_publisher']?></span>
 </div>
 <div>
-<span class="li-left">ISBN</span><span class="li-right">123-321-23123123</span>
+<span class="li-left">ISBN</span><span class="li-right"><?=$item['book_isbn']?></span>
 </div>
 </li>
-<li>
-<h3><a href="#">《经济法》</a></h3>
-<div>
-<span class="li-left">出版社</span><span class="li-right">人民教育出版社</span>
-</div>
-<div>
-<span class="li-left">ISBN</span><span class="li-right">123-321-23123123</span>
-</div>
-</li>
-<li>
-<h3><a href="#">《经济法》</a></h3>
-<div>
-<span class="li-left">出版社</span><span class="li-right">人民教育出版社</span>
-</div>
-<div>
-<span class="li-left">ISBN</span><span class="li-right">123-321-23123123</span>
-</div>
-</li>
-<li>
-<h3><a href="#">《经济法》</a></h3>
-<div>
-<span class="li-left">出版社</span><span class="li-right">人民教育出版社</span>
-</div>
-<div>
-<span class="li-left">ISBN</span><span class="li-right">123-321-23123123</span>
-</div>
-</li>
-<li>
-<h3><a href="#">《经济法》</a></h3>
-<div>
-<span class="li-left">出版社</span><span class="li-right">人民教育出版社</span>
-</div>
-<div>
-<span class="li-left">ISBN</span><span class="li-right">123-321-23123123</span>
-</div>
-</li>
-<li>
-<h3><a href="#">《经济法》</a></h3>
-<div>
-<span class="li-left">出版社</span><span class="li-right">人民教育出版社</span>
-</div>
-<div>
-<span class="li-left">ISBN</span><span class="li-right">123-321-23123123</span>
-</div>
-</li>
+<?php endforeach;?>	
 </ul>
-<a href="#" class="more">完整榜单-></a>
+<a href="<?=site_url().'/requesting'?>" class="more">完整榜单-></a>
 </div>
 <div class="white-box" id="right-box">
 <h2>火热推荐</h2>

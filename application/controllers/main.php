@@ -7,6 +7,7 @@ class Main extends CI_Controller{
          $this -> load -> helper('html');
 		 $this->load->helper('url');
 		 $this->load->model('Sellingmodel');
+		 $this->load->model('Requestingmodel');
 		 //$this->load->library('javascript');
 		 //$this->output->cache(5);
          }
@@ -31,6 +32,7 @@ class Main extends CI_Controller{
          $data = array();
          $this -> _makeHeader($data);
 		 $this ->Sellingmodel->queryData($data, 0,0,0);
+		 $this ->Requestingmodel->queryData($data, 0,0,0);
          $this -> load -> view('header', $data);
          $this -> load -> view('main');
 		 $this -> load -> view('footer');

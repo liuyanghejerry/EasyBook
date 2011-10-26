@@ -137,8 +137,7 @@ class Database_init extends CI_Controller{
 						'collage_firstsub' => array(
                                                  'type' => 'INT',
                                                  'constraint' => 5, 
-                                                 'unsigned' => TRUE,
-                                                 'auto_increment' => TRUE
+                                                 'unsigned' => TRUE
                                           ),
          );
 		 $this->dbforge->add_field($fields);
@@ -170,7 +169,7 @@ class Database_init extends CI_Controller{
 		 $this->dbforge->add_key('subject_name');
 		 $this->dbforge->create_table('bk_subjects',TRUE);
 		 
-		 //books
+		 //selling books
 		 $fields = array(
                         'selling_id' => array(
                                                  'type' => 'INT',
@@ -222,10 +221,6 @@ class Database_init extends CI_Controller{
                                                  'type' => 'VARCHAR',
                                                  'constraint' => 20
                                           ),
-						'book_boxart' => array(
-                                                 'type' => 'VARCHAR',
-                                                 'constraint' => 20
-                                          ),
 						'book_note' => array(
                                                  'type' => 'TEXT'
                                           ),
@@ -258,6 +253,78 @@ class Database_init extends CI_Controller{
 		 $this->dbforge->add_key('book_status');
 		 $this->dbforge->add_key('selling_start');
 		 $this->dbforge->create_table('bk_selling',TRUE);
+		 
+		 //requesting books
+		 $fields = array(
+                        'requesting_id' => array(
+                                                 'type' => 'INT',
+                                                 'constraint' => 9, 
+                                                 'unsigned' => TRUE,
+                                                 'auto_increment' => TRUE
+                                          ),
+                        'book_name' => array(
+                                                 'type' => 'VARCHAR',
+                                                 'constraint' => '30'
+                                          ),
+						'book_publisher' => array(
+                                                 'type' => 'VARCHAR',
+                                                 'constraint' => '30',
+												 'null' => TRUE
+                                          ),
+						'book_author' => array(
+                                                 'type' => 'VARCHAR',
+                                                 'constraint' => '30',
+												 'null' => TRUE
+                                          ),
+						'book_isbn' => array(
+                                                 'type' => 'BIGINT',
+                                                 'constraint' => 20,
+												 'unsigned' => TRUE,
+												 'null' => TRUE
+                                          ),
+						'book_ownerid' => array(
+                                                 'type' => 'INT',
+                                                 'constraint' => 5,
+												 'unsigned' => TRUE
+                                          ),
+						'book_collage' => array(
+                                                 'type' => 'INT',
+                                                 'constraint' => 5,
+												 'unsigned' => TRUE
+                                          ),
+						'book_subject' => array(
+                                                 'type' => 'INT',
+                                                 'constraint' => 5,
+												 'unsigned' => TRUE
+                                          ),
+						'book_status' => array(
+                                                 'type' => 'INT',
+                                                 'constraint' => 5
+                                          ),
+						'book_contact' => array(
+                                                 'type' => 'VARCHAR',
+                                                 'constraint' => 20
+                                          ),
+						'book_note' => array(
+                                                 'type' => 'TEXT'
+                                          ),
+						'requesting_start' => array(
+                                                 'type' => 'DATE'
+                                          ),
+						'requesting_end' => array(
+                                                 'type' => 'DATE'
+                                          ),
+         );
+		 $this->dbforge->add_field($fields);
+		 $this->dbforge->add_key('requesting_id', TRUE);
+		 $this->dbforge->add_key('book_name');
+		 $this->dbforge->add_key('book_isbn');
+		 $this->dbforge->add_key('book_collage');
+		 $this->dbforge->add_key('book_subject');
+		 $this->dbforge->add_key('book_ownerid');
+		 $this->dbforge->add_key('book_status');
+		 $this->dbforge->add_key('requesting_start');
+		 $this->dbforge->create_table('bk_requesting',TRUE);
 	}
 	
     }
