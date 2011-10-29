@@ -57,6 +57,37 @@ class Database_init extends CI_Controller{
                                                  'type' => 'TEXT',
 												 'constraint' => '100',
                                           ),
+						'user_studentid' => array(
+                                                 'type' => 'INT',
+												 'constraint' => '15',
+												 'unsigned' => TRUE,
+                                          ),
+						'user_cellphone' => array(
+                                                 'type' => 'VARCHAR',
+												 'constraint' => '15',
+												 'unsigned' => TRUE,
+                                          ),
+						'user_gender' => array(
+                                                 'type' => 'INT',
+												 'constraint' => '1',
+												 'unsigned' => TRUE,
+												 'default' => '1'
+                                          ),
+						'user_collage' => array(
+                                                 'type' => 'INT',
+												 'constraint' => '5',
+												 'unsigned' => TRUE,
+                                          ),
+						'user_subject' => array(
+                                                 'type' => 'INT',
+												 'constraint' => '5',
+												 'unsigned' => TRUE,
+                                          ),
+						'user_qq' => array(
+                                                 'type' => 'VARCHAR',
+												 'constraint' => '20',
+												 'unsigned' => TRUE,
+                                          ),
          );
 		 $this->dbforge->add_field($fields);
 		 $this->dbforge->add_key('user_id', TRUE);

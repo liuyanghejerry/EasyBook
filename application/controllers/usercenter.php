@@ -7,6 +7,7 @@ class Usercenter extends CI_Controller{
 		 $this->load->helper(array('html','form', 'url','captcha'));
 		 $this->load->library('form_validation');
 		 $this->load->model('sellingModel');
+		 $this->load->model('requestingModel');
 		 $this->load->database();
 		 //$this->load->library('javascript');
 		 //$this->output->cache(5);
@@ -34,6 +35,7 @@ class Usercenter extends CI_Controller{
 		 $data = array();
          $this -> _makeHeader($data);
 		 $data['selling'] = $this -> sellingModel-> whatsMyBook($this->session->userdata('userid'));
+		 $data['requesting'] = $this -> requestingModel-> whatsMyBook($this->session->userdata('userid'));
          $this -> load -> view('header', $data);
          $this -> load -> view('usercenter');
 		 $this -> load -> view('footer');

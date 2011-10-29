@@ -41,7 +41,7 @@ input,button,textarea,select {
 	*font-size:100%;
 }
 .white-box{
-height:500px;
+/*height:500px;*/
 position: relative;
 border: 1px solid #E6E6E6;
 margin-bottom: 12px;

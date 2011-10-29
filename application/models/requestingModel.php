@@ -11,14 +11,14 @@ class RequestingModel extends CI_Model {
 		function queryData(&$data,$collageNum,$subjectNum,$page)
 	 {
 		if(!$collageNum){
-			$sql = "SELECT * FROM bk_requesting ORDER BY requesting_start LIMIT ?,?";
+			$sql = "SELECT * FROM bk_requesting WHERE `book_status` = 1 ORDER BY requesting_start LIMIT ?,?";
 			$query = $this->db->query($sql,array($page+0, $page+10));
 		}else{
 			if(!$subjectNum) {
-			$sql = "SELECT * FROM bk_requesting WHERE `book_collage` = ? ORDER BY requesting_start LIMIT ?,?";
+			$sql = "SELECT * FROM bk_requesting WHERE `book_collage` = ? AND `book_status` = 1 ORDER BY requesting_start LIMIT ?,?";
 			$query = $this->db->query($sql,array($collageNum,$page+0, $page+10));
 			}else{
-			$sql = "SELECT * FROM bk_requesting WHERE `book_collage` = ? AND `book_subject` = ? ORDER BY requesting_start LIMIT ?,?";
+			$sql = "SELECT * FROM bk_requesting WHERE `book_collage` = ? AND `book_subject` = ? AND `book_status` = 1 ORDER BY requesting_start LIMIT ?,?";
 			$query = $this->db->query($sql,array($collageNum, $subjectNum, $page+0, $page+10));
 			}
 		}
@@ -128,6 +128,28 @@ class RequestingModel extends CI_Model {
 			$sql = "SELECT * FROM `bk_requesting` WHERE `book_collage` = ? AND `requesting_id` != ?";
 			$query = $this->db->query($sql,array($collage,$id));
 			return $query->result_array();
+		}else{
+			//
+		}
+	 }
+	 
+	 function whatsMyBook($id)
+	 {
+		if($id){
+			$sql = "SELECT * FROM `bk_requesting` WHERE `book_ownerid` = ?";
+			$query = $this->db->query($sql,array($id));
+			return $query->result_array();
+		}else{
+			//
+		}
+	 }
+	 
+	 function closeBook($id)
+	 {
+		if($id){
+			$sql = "UPDATE `bk_requesting` SET `book_status` = ? WHERE `requesting_id` = ?";
+			$query = $this->db->query($sql,array(0,$id));
+			return $query;
 		}else{
 			//
 		}

@@ -40,9 +40,9 @@
 </div>
 <ul class="main-nav nav-plaza">
 <li><a href="<?=site_url()?>">首页</a></li>
-<li><a href="#">排行榜</a></li>
-<li><a href="#">留言板</a></li>
-<li><a href="#">我的账户</a></li>
+<li><a href="<?=site_url()?>/top">排行榜</a></li>
+<li><a href="<?=site_url()?>/board">留言板</a></li>
+<li><a href="<?=site_url()?>/usercenter">我的账户</a></li>
 </ul>
 <div class="user-bar">
 <?php

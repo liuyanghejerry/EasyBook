@@ -7,6 +7,7 @@ class Register extends CI_Controller{
 		 $this->load->helper(array('html','form', 'url','captcha'));
 		 $this->load->library('form_validation');
 		 $this->load->database();
+		 $this->load->model('collageModel');
 		 //$this->load->library('javascript');
 		 //$this->output->cache(5);
          }
@@ -18,8 +19,10 @@ class Register extends CI_Controller{
         $data['description'] = 'This is description';
         $data['robots'] = 'This is robots part';
 		$baser = base_url();
-		$data['javascript'] = array($baser.'resource/register/validation.js');
+		$data['javascript'] = array($baser.'resource/register/validation.js',$baser.'resource/register/jquery.bgiframe.js'
+									,$baser.'resource/register/jquery.mcdropdown.min.js');
 		$data['css'] = array($baser.'resource/common.css',$baser.'resource/register/register.css',
+							$baser.'resource/register/jquery.mcdropdown.min.css',
 							$baser.'resource/footer/footer.css');
 		$data['username'] = $this->session->userdata('username');
 		$data['login'] = $this->session->userdata('login');
@@ -53,6 +56,8 @@ class Register extends CI_Controller{
          $this -> _makeHeader($data);
 		 $data['warning'] = 'none';
 		 $data['capTime']=$cap['time'];
+		 $this->collageModel->allCollage($data);
+		 
          $this -> load -> view('header', $data);
          $this -> load -> view('register');
 		 $this -> load -> view('footer');
@@ -80,12 +85,27 @@ class Register extends CI_Controller{
                array(
                      'field'   => 'email', 
                      'label'   => '电子邮件', 
-                     'rules'   => 'trim|required|valid_email|callback__checkUserEmail'
+                     'rules'   => 'trim|required|valid_email|xss_clean|callback__checkUserEmail'
                   ),
 			   array(
                      'field'   => 'capcha', 
                      'label'   => '验证码', 
                      'rules'   => 'trim|required|callback__capchaValidate'
+                  ),
+			   array(
+                     'field'   => 'gender', 
+                     'label'   => '性别', 
+                     'rules'   => 'required|xss_clean'
+                  ),
+			   array(
+                     'field'   => 'cellphone', 
+                     'label'   => '联系电话', 
+                     'rules'   => 'trim|required|min_length[8]|max_length[11]|xss_clean|integer'
+                  ),
+			   array(
+                     'field'   => 'subject', 
+                     'label'   => '专业', 
+                     'rules'   => 'trim|required|min_length[1]|max_length[2]|xss_clean|integer'
                   )
             );
 
@@ -98,6 +118,7 @@ class Register extends CI_Controller{
 		$this->form_validation->set_message('matches', '您的%s填写与密码并不一致。');
 		$this->form_validation->set_message('min_length', '您的%s长度太小。');
 		$this->form_validation->set_message('min_length', '您的%s长度太小。');
+		$this->form_validation->set_message('integer', '您的%s应当只包含数字。');
 		 
 		 if (!$this->form_validation->run())
 		  {
