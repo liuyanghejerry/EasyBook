@@ -117,7 +117,10 @@ class Login extends CI_Controller{
 		$name = $this->input->post('name');
 		$md5passwd = md5($this->input->post('pass'));//Notice, this is a double md5 encode. The first encode is when validate.
 		if($name && $md5passwd) { 
-			   $append = array('login'=>TRUE, 'username'  => $name);
+				$sql = "SELECT * FROM `bk_users` WHERE `user_name` = ?";
+				$query = $this->db->query($sql,array($name));
+				$userid = $query -> row() -> user_id;
+			   $append = array('login'=>TRUE, 'username'  => $name, 'userid' => $userid);
 			   $this->session->set_userdata($append);
 		}
 	 }

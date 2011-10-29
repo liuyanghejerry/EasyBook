@@ -11,14 +11,14 @@ class SellingModel extends CI_Model {
 	function queryData(&$data,$collageNum,$subjectNum,$page)
 	 {
 		if(!$collageNum){
-			$sql = "SELECT * FROM bk_selling ORDER BY selling_start LIMIT ?,?";
+			$sql = "SELECT * FROM `bk_selling` WHERE `book_status` = 1 ORDER BY `selling_start` LIMIT ?,?";
 			$query = $this->db->query($sql,array($page+0, $page+10));
 		}else{
 			if(!$subjectNum) {
-			$sql = "SELECT * FROM bk_selling WHERE `book_collage` = ? ORDER BY selling_start LIMIT ?,?";
+			$sql = "SELECT * FROM `bk_selling` WHERE `book_collage` = ? AND `book_status` = 1 ORDER BY `selling_start` LIMIT ?,?";
 			$query = $this->db->query($sql,array($collageNum,$page+0, $page+10));
 			}else{
-			$sql = "SELECT * FROM bk_selling WHERE `book_collage` = ? AND `book_subject` = ? ORDER BY selling_start LIMIT ?,?";
+			$sql = "SELECT * FROM `bk_selling` WHERE `book_collage` = ? AND `book_subject` = ? AND `book_status` = 1 ORDER BY `selling_start` LIMIT ?,?";
 			$query = $this->db->query($sql,array($collageNum, $subjectNum, $page+0, $page+10));
 			}
 		}
@@ -40,6 +40,13 @@ class SellingModel extends CI_Model {
 		$sql = "SELECT * FROM `bk_users` WHERE `user_id` = ? LIMIT 1";
 		$query = $this->db->query($sql,array($id));
 		return $query->row()->user_name;
+	 }
+	 
+	 function whosBook($id)
+	 {
+		$sql = "SELECT * FROM `bk_selling` WHERE `selling_id` = ? LIMIT 1";
+		$query = $this->db->query($sql,array($id));
+		return $query->row()->book_ownerid;
 	 }
 	 
 	 function queryCollage($id)
@@ -128,6 +135,28 @@ class SellingModel extends CI_Model {
 			$sql = "SELECT * FROM `bk_selling` WHERE `book_collage` = ? AND `selling_id` != ?";
 			$query = $this->db->query($sql,array($collage,$id));
 			return $query->result_array();
+		}else{
+			//
+		}
+	 }
+	 
+	 function whatsMyBook($id)
+	 {
+		if($id){
+			$sql = "SELECT * FROM `bk_selling` WHERE `book_ownerid` = ?";
+			$query = $this->db->query($sql,array($id));
+			return $query->result_array();
+		}else{
+			//
+		}
+	 }
+	 
+	 function closeBook($id)
+	 {
+		if($id){
+			$sql = "UPDATE `bk_selling` SET `book_status` = ? WHERE `selling_id` = ?";
+			$query = $this->db->query($sql,array(0,$id));
+			return $query;
 		}else{
 			//
 		}
