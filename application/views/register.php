@@ -39,14 +39,14 @@ echo form_input($attributes);
 echo form_label('性别选择','gender');
 $attributes = array(
               'name'        => 'gender',
-              'id'          => 'gender',
+              'id'          => 'gender1',
 			  'value'       => '1',
 			  'checked'     => TRUE,
             );
 echo form_radio($attributes).'男';
 $attributes = array(
               'name'        => 'gender',
-              'id'          => 'gender',
+              'id'          => 'gender2',
 			  'value'       => '0',
 			  'checked'     => FALSE,
             );
@@ -103,7 +103,7 @@ $attributes = array(
             );
 echo form_input($attributes);
 ?>
-<span id="subjectInfo">您所在的专业。</span>  
+<!--<span id="subjectInfo">您所的专业。</span>  -->
 </div>
 <script type="text/javascript">
 $(document).ready(function (){

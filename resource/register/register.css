@@ -33,7 +33,15 @@ margin-bottom: 10px;
     font-size: 11px;
     border: 1px solid #cecece;
 }
-#customForm input#gender{
+#customForm input#gender1{
+    width: 50px;
+    padding: 6px;
+    color: #949494;
+    font-family: Arial,  Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #cecece;
+}
+#customForm input#gender2{
     width: 50px;
     padding: 6px;
     color: #949494;

@@ -191,11 +191,26 @@ class Register extends CI_Controller{
 		$name = $this->input->post('name');
 		$md5passwd = md5($this->input->post('pass1'));//Notice, this is a double md5 encode. The first encode is when validate.
 		$email = $this->input->post('email');
+		$gender = $this->input->post('gender1');
+		if(!$gender)$gender=1;
+		$subject = $this->input->post('subject');
+		$collage = $this->collageModel->subjectToCollage($subject);
+		$studentid = $this->input->post('studentid');
+		$cellphone = $this->input->post('cellphone');
+		$qq = $this->input->post('qq');
+		if(!$qq)$qq = NULL;
+		
 		if($name && $md5passwd && $email) {
 			$data = array(
 						'user_name' => $name,
 						'user_passhash' => $md5passwd,
-						'user_email' => $email
+						'user_email' => $email,
+						'user_subject' => $subject,
+						'user_collage' => $collage,
+						'user_studentid' => $studentid,
+						'user_cellphone' => $cellphone,
+						'user_qq' => $qq,
+						'user_gender' => $gender
 					);
 			$query = $this->db->insert_string('bk_users', $data);
 			$this->db->query($query);

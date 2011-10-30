@@ -47,25 +47,23 @@ class Database_init extends CI_Controller{
                                           ),
                         'user_name' => array(
                                                  'type' => 'VARCHAR',
-                                                 'constraint' => '20',
+                                                 'constraint' => '20'
                                           ),
                         'user_passhash' => array(
                                                  'type' =>'VARCHAR',
-                                                 'constraint' => '32',
+                                                 'constraint' => '32'
                                           ),
                         'user_email' => array(
                                                  'type' => 'TEXT',
-												 'constraint' => '100',
+												 'constraint' => '100'
                                           ),
 						'user_studentid' => array(
-                                                 'type' => 'INT',
+                                                 'type' => 'VARCHAR',
 												 'constraint' => '15',
-												 'unsigned' => TRUE,
                                           ),
 						'user_cellphone' => array(
                                                  'type' => 'VARCHAR',
 												 'constraint' => '15',
-												 'unsigned' => TRUE,
                                           ),
 						'user_gender' => array(
                                                  'type' => 'INT',
@@ -76,18 +74,18 @@ class Database_init extends CI_Controller{
 						'user_collage' => array(
                                                  'type' => 'INT',
 												 'constraint' => '5',
-												 'unsigned' => TRUE,
+												 'unsigned' => TRUE
                                           ),
 						'user_subject' => array(
                                                  'type' => 'INT',
 												 'constraint' => '5',
-												 'unsigned' => TRUE,
+												 'unsigned' => TRUE
                                           ),
 						'user_qq' => array(
                                                  'type' => 'VARCHAR',
 												 'constraint' => '20',
-												 'unsigned' => TRUE,
-                                          ),
+												 'null' => TRUE
+                                          )
          );
 		 $this->dbforge->add_field($fields);
 		 $this->dbforge->add_key('user_id', TRUE);
