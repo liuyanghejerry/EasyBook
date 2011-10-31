@@ -2,7 +2,9 @@
 width: 970px;
 margin: 0 auto;
 }
-
+#new-selling {
+height:500px;
+}
 /*slide show*/
 #slideshow {list-style:none; color:#fff}
 #slideshow span {display:none}

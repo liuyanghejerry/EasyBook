@@ -1,5 +1,5 @@
 <div id="main-box">
-<div class="white-box">
+<div class="white-box" id="new-selling">
 <div id="extruderLeft" class="a {title:'图书分类', url:'<?=base_url()?>static/categories.html'}"></div>
 <a class ="more" href="<?=site_url().'/selling'?>">更多-></a>
 <h2>最新售出</h2>

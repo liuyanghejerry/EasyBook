@@ -24,9 +24,18 @@ echo "<li>+ <b>全部</b></li>";
 		</div>
 		<div class="info-slot">
 		<h2>发布信息</h2>
+		<?php
+		if($item['book_status']!=1){
+			echo '<h3>该求购已被关闭或过期。</h3>';
+			goto close;
+		}
+		?>
 		<div class="slot"><span class="left-slot">发布时间：<?=$item['requesting_start']?></span><span class="right-slot">过期时间：<?=$item['requesting_end']?></span></div>
 		<div class="slot"><span class="left-slot">联系人：<?=$item['book_owner']?></span><span class="right-slot">联系方式：<?=$item['book_contact']?></span></div>
 		<div class="slot"><span class="left-slot">备注：<?=$item['book_note']?></span></div>
+		<?php
+		close:
+		?>
 		</div>
 	</div>
 	</div>

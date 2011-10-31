@@ -8,7 +8,7 @@ class RequestingModel extends CI_Model {
         parent::__construct();
     }
 	
-		function queryData(&$data,$collageNum,$subjectNum,$page)
+	function queryData(&$data,$collageNum,$subjectNum,$page)
 	 {
 		if(!$collageNum){
 			$sql = "SELECT * FROM bk_requesting WHERE `book_status` = 1 ORDER BY requesting_start LIMIT ?,?";
@@ -153,6 +153,13 @@ class RequestingModel extends CI_Model {
 		}else{
 			//
 		}
+	 }
+	 
+	 function whosBook($id)
+	 {
+		$sql = "SELECT * FROM `bk_requesting` WHERE `requesting_id` = ? LIMIT 1";
+		$query = $this->db->query($sql,array($id));
+		return $query->row()->book_ownerid;
 	 }
 }
 ?>

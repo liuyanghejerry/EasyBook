@@ -8,6 +8,8 @@ class Usercenter extends CI_Controller{
 		 $this->load->library('form_validation');
 		 $this->load->model('sellingModel');
 		 $this->load->model('requestingModel');
+		 $this->load->model('userInfoModel');
+		 $this->load->model('collageModel');
 		 $this->load->database();
 		 //$this->load->library('javascript');
 		 //$this->output->cache(5);
@@ -32,13 +34,17 @@ class Usercenter extends CI_Controller{
 		if(!$this->session->userdata('login')||!$this->session->userdata('username')||!$this->session->userdata('userid')){
 			redirect('login');  
 		}
+		 $userid = $this->session->userdata('userid');
 		 $data = array();
          $this -> _makeHeader($data);
-		 $data['selling'] = $this -> sellingModel-> whatsMyBook($this->session->userdata('userid'));
-		 $data['requesting'] = $this -> requestingModel-> whatsMyBook($this->session->userdata('userid'));
+		 $data['selling'] = $this -> sellingModel-> whatsMyBook($userid);
+		 $data['requesting'] = $this -> requestingModel-> whatsMyBook($userid);
+		 $this -> userInfoModel ->allInfo($data,$userid);
+		 $data['userinfo']['user_collage'] = $this -> collageModel ->collageName($data['userinfo']['user_collage']);
+		 $data['userinfo']['user_subject'] = $this -> collageModel ->subjectName($data['userinfo']['user_subject']);
          $this -> load -> view('header', $data);
          $this -> load -> view('usercenter');
 		 $this -> load -> view('footer');
     }
-	}
+}
 ?>

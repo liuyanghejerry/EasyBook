@@ -26,7 +26,6 @@ class Requesting extends CI_Controller{
      function index()
     {
           $this->page(0,0,0);
-		  //print_r($data['selling']);	
     }
 	
 	function page($collageNum=0, $subjectNum=0, $pageNum = 0)
@@ -49,7 +48,7 @@ class Requesting extends CI_Controller{
 		 $this -> load -> view('footer');
 	} 
 	
-	function single($id=1)
+	function single($id=1,$action='show')
 	{
 		 $data = array();
          $this -> _makeHeader($data);		 
@@ -58,11 +57,26 @@ class Requesting extends CI_Controller{
 			redirect('missing');  
 			return;
 		 }
-		 $data['subjects'] = $this ->requestingModel-> sameSubjectBook($id);
-		 $data['collages'] = $this ->requestingModel-> sameCollageBook($id);
-         $this -> load -> view('header', $data);
-         $this -> load -> view('requesting_single');
-		 $this -> load -> view('footer');
+		 
+		 if($action=='close'){
+			$book_owner = $this ->requestingModel->whosBook($id);
+			if($book_owner == $this->session->userdata('userid')){
+				$this ->requestingModel->closeBook($id);
+				$data['msgtitle'] = '图书已成功关闭';
+				$data['msgcontent'] = '图书已成功关闭，将不会再出现在求购栏目当中。';
+				$this -> load -> view('header', $data);
+			    $this -> load -> view('message-template');
+			    $this -> load -> view('footer');
+				return;
+			}
+		 }else{
+			 $data['subjects'] = $this ->requestingModel-> sameSubjectBook($id);
+			 $data['collages'] = $this ->requestingModel-> sameCollageBook($id);
+			 $this -> load -> view('header', $data);
+			 $this -> load -> view('requesting_single');
+			 $this -> load -> view('footer');
+			 return;
+		 }
 	} 
 }
 ?>

@@ -48,7 +48,7 @@
 <?php
 
 if( isset($username) && isset($login) && $username){
-echo "<a href='".site_url()."/user_center' id='login-hook'>". $username ."</a>&nbsp;&nbsp;<a href='".site_url()."/login/logout'>注销</a> ";
+echo "<a href='".site_url()."/usercenter' id='login-hook'>". $username ."</a>&nbsp;&nbsp;<a href='".site_url()."/login/logout'>注销</a> ";
 }else{
 echo "<a href='".site_url()."/login' id='login-hook'>登录</a>&nbsp;&nbsp;<a href='".site_url()."/register'>注册</a> ";
 }
