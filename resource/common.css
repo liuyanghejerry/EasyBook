@@ -1,7 +1,7 @@
 html {
 	color:#666;
 	overflow-y:scroll;
-	background-color: #323232;
+	background-color:#323232;
 }
 body {
 	font:12px/20px "微软雅黑",Tahoma,Arial,Helvetica,sans-serif;
@@ -40,29 +40,157 @@ input,button,textarea,select,optgroup,option {
 input,button,textarea,select {
 	*font-size:100%;
 }
-.white-box{
-/*height:500px;*/
-position: relative;
-border: 1px solid #E6E6E6;
-margin-bottom: 12px;
-background-color: white;
-padding: 10px 15px;
+.white-box {
+	/*height:500px;
+	*/
+position:relative;
+	border:1px solid #E6E6E6;
+	margin-bottom:12px;
+	background-color:white;
+	padding:10px 15px;
 }
-
 .white-box h2 {
 	margin-bottom:20px;
 }
-
 .more {
 	float:right;
 }
-
 #msg-frame {
-width:970px;
-margin:0 auto;
-height:300px;
+	width:970px;
+	margin:0 auto;
+	height:300px;
+}
+#msg-box {
+	height:100px;
+}
+/* github-style button */
+  a.minibutton {
+	display:inline-block;
+	height:23px;
+	padding:0 0 0 3px;
+	font-size:11px;
+	font-weight:bold;
+	color:#333;
+	text-shadow:1px 1px 0 white;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	background:#f4f4f4;
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f4f4f4',endColorstr='#ececec');
+	background:-webkit-gradient(linear,left top,left bottom,from(#f4f4f4),to(#ececec));
+	background:-moz-linear-gradient(top,#f4f4f4,#ececec);
+	white-space:nowrap;
+	border:1px solid #D4D4D4;
+	overflow:visible;
+	cursor:pointer;
+	text-decoration:none;
+}
+a.minibutton>span {
+	display:block;
+	height:23px;
+	padding:0 10px 0 8px;
+	line-height:23px;
+}
+a.minibutton:hover,a.minibutton:focus {
+	color:#fff;
+	text-decoration:none;
+	text-shadow:-1px -1px 0 rgba(0,0,0,0.3);
+	border-color:#518cc6;
+	border-bottom-color:#2a65a0;
+	background:#599bdc;
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#599bdc',endColorstr='#3072b3');
+	background:-webkit-gradient(linear,left top,left bottom,from(#599bdc),to(#3072b3));
+	background:-moz-linear-gradient(top,#599bdc,#3072b3);
 }
 
-#msg-box {
-height:100px;
+/*********common form**********/
+.warning {
+margin: auto;
+text-align: center;
+border: 1px solid #CD0A0A;
+width: 500px;
+background-color: #E14F1C;
+color: white;
+padding: 7px;
+margin-bottom: 10px;
+}
+
+#customForm{
+    padding: 0 10px 10px;
+	width:600px;
+	margin:auto;
+}
+#customForm label{
+    display: block;
+    color: #797979;
+    font-weight: 700;
+    line-height: 1.4em;
+}
+#customForm input{
+    width: 220px;
+    padding: 6px;
+    color: #949494;
+    font-family: Arial,  Verdana, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #cecece;
+}
+#customForm input.error{
+    background: #f8dbdb;
+    border-color: #e77776;
+}
+#customForm textarea{
+    width: 550px;
+    height: 80px;
+    padding: 6px;
+    color: #adaeae;
+    font-family: Arial,  Verdana, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 12px;
+    border: 1px solid #cecece;
+}
+#customForm textarea.error{
+    background: #f8dbdb;
+    border-color: #e77776;
+}
+#customForm div{
+    margin-bottom: 15px;
+}
+#customForm div span{
+    margin-left: 10px;
+    color: #b1b1b1;
+    font-size: 13px;
+}
+#customForm div span.error{
+    color: #e46c6e;
+	font-weight: bold;
+}
+#customForm #send{
+    background: #6f9ff1;
+    color: #fff;
+    font-weight: 700;
+    font-style: normal;
+    border: 0;
+    cursor: pointer;
+}
+#customForm #send:hover{
+    background: #79a7f1;
+}
+#error{
+    margin-bottom: 20px;
+    border: 1px solid #efefef;
+}
+#error ul{
+    list-style: square;
+    padding: 5px;
+    font-size: 11px;
+}
+#error ul li{
+    list-style-position: inside;
+    line-height: 1.6em;
+}
+#error ul li strong{
+    color: #e46c6d;
+}
+#error.valid ul li strong{
+    color: #93d72e;
 }

@@ -22,7 +22,7 @@ class Usercenter extends CI_Controller{
         $data['description'] = 'This is description';
         $data['robots'] = 'This is robots part';
 		$baser = base_url();
-		$data['javascript'] = array($baser.'resource/usercenter/jquery.idTabs.min.js');
+		$data['javascript'] = array($baser.'resource/usercenter/jquery.idTabs.min.js',$baser.'resource/common.js');
 		$data['css'] = array($baser.'resource/common.css',$baser.'resource/usercenter/usercenter.css',
 							$baser.'resource/footer/footer.css');
 		$data['username'] = $this->session->userdata('username');
