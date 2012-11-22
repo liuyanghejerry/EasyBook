@@ -3,17 +3,18 @@ class Login extends CI_Controller{
     
      function __construct()
     {
-         parent :: __construct();
-		 $this->load->helper(array('html','form', 'url','captcha'));
-		 $this->load->library('form_validation');
-		 $this->load->database();
-		 //$this->load->library('javascript');
-		 //$this->output->cache(5);
-         }
+		parent :: __construct();
+		$this->load->helper(array('html','form', 'url','captcha'));
+		$this->load->library('form_validation');
+		$this->load->database();
+		$this->lang->load('form_validation', 'chinese');
+		//$this->load->library('javascript');
+		//$this->output->cache(5);
+	}
     
      function _makeHeader(&$data)
     {
-         echo doctype('html5');
+		echo doctype('html5');
         $data['keywords'] = 'This, is, keywords';
         $data['description'] = 'This is description';
         $data['robots'] = 'This is robots part';
@@ -29,65 +30,54 @@ class Login extends CI_Controller{
     {
 		$this->form_validation->set_error_delimiters('<div class="warning"><p>', '</p></div>');
 		$data = array();
-         $this -> _makeHeader($data);
-         $this -> load -> view('header', $data);
-         $this -> load -> view('login');
-		 $this -> load -> view('footer');
+		$this -> _makeHeader($data);
+		$this -> load -> view('header', $data);
+		$this -> load -> view('login');
+		$this -> load -> view('footer');
     }
 	
 	function validate()
 	{
 		 
-		 $rules = array(
-               array(
-                     'field'   => 'name', 
-                     'label'   => '用户名', 
-                     'rules'   => 'trim|required|min_length[4]|max_length[20]|xss_clean|alpha_dash|callback__check'
-                  ),
-               array(
-                     'field'   => 'pass', 
-                     'label'   => '密码', 
-                     'rules'   => 'required|min_length[6]|max_length[20]|md5'
-                  )
-            );
+		$rules = array(
+		   array(
+				 'field'   => 'name', 
+				 'label'   => '用户名', 
+				 'rules'   => 'trim|required|min_length[4]|max_length[20]|xss_clean|alpha_dash|callback__check'
+			  ),
+		   array(
+				 'field'   => 'pass', 
+				 'label'   => '密码', 
+				 'rules'   => 'required|min_length[6]|max_length[20]|md5'
+			  )
+		);
 
-		 $this->form_validation->set_rules($rules);
-		 $this->form_validation->set_message('required', '您的%s没有填写，请补充该内容。');
-		$this->form_validation->set_message('min_length', '您的%s长度太小。');
-		$this->form_validation->set_message('max_length', '您的%s长度太大。');
-		$this->form_validation->set_message('valid_email', '您的%s不上一个合法的电子邮件地址。');
-		$this->form_validation->set_message('alpha_dash', '%s当中仅允许英文字母、数字、下划线、英文破折号。');
-		$this->form_validation->set_message('matches', '您的%s填写与密码并不一致。');
-		$this->form_validation->set_message('min_length', '您的%s长度太小。');
-		$this->form_validation->set_message('min_length', '您的%s长度太小。');
-		 
-		 if (!$this->form_validation->run())
-		  {
-		   $this->index();
-		  }
-		  else
-		  {
-		   $this->_login();
-		   $data = array();
-		   $data['msgtitle'] = '登录成功';
-		   $data['msgcontent'] = '恭喜您，您已顺利登录，请点击<a href="'.base_url().'">返回首页</a>。';
-		   $this ->_makeHeader($data);
-		   $this ->load ->view('header', $data);
-		   $this->load->view('message-template');
-		   $this ->load ->view('footer');
-		  }
+		$this->form_validation->set_rules($rules);
+
+		if (!$this->form_validation->run()){
+			$this->index();
+		}else{
+			$this->_login();
+			$data = array();
+			$data['msgtitle'] = '登录成功';
+			$data['msgcontent'] = '恭喜您，您已顺利登录，请点击<a href="'.base_url().'">返回首页</a>。';
+			$this ->_makeHeader($data);
+			$this ->load ->view('header', $data);
+			$this->load->view('message-template');
+			$this ->load ->view('footer');
+		}
     }
 	
 	function logout()
 	 {
 		$this->session->sess_destroy();
 		$data = array();
-	   $this ->_makeHeader($data);
-	   $data['msgtitle'] = '注销成功';
-	   $data['msgcontent'] = '您已成功注销，请点击<a href="'.base_url().'">返回首页</a>。';
-	   $this ->load ->view('header', $data);
-	   $this->load->view('message-template');
-	   $this ->load ->view('footer');
+		$this ->_makeHeader($data);
+		$data['msgtitle'] = '注销成功';
+		$data['msgcontent'] = '您已成功注销，请点击<a href="'.base_url().'">返回首页</a>。';
+		$this ->load ->view('header', $data);
+		$this->load->view('message-template');
+		$this ->load ->view('footer');
 	 }
 	
 	 function _check($ss)
@@ -120,8 +110,8 @@ class Login extends CI_Controller{
 				$sql = "SELECT * FROM `bk_users` WHERE `user_name` = ?";
 				$query = $this->db->query($sql,array($name));
 				$userid = $query -> row() -> user_id;
-			   $append = array('login'=>TRUE, 'username'  => $name, 'userid' => $userid);
-			   $this->session->set_userdata($append);
+				$append = array('login'=>TRUE, 'username'  => $name, 'userid' => $userid);
+				$this->session->set_userdata($append);
 		}
 	 }
 	}

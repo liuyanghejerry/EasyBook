@@ -3,18 +3,19 @@ class Register extends CI_Controller{
     
      function __construct()
     {
-         parent :: __construct();
-		 $this->load->helper(array('html','form', 'url','captcha'));
-		 $this->load->library('form_validation');
-		 $this->load->database();
-		 $this->load->model('collageModel');
-		 //$this->load->library('javascript');
-		 //$this->output->cache(5);
-         }
+		parent :: __construct();
+		$this->load->helper(array('html','form', 'url','captcha'));
+		$this->load->library('form_validation');
+		$this->load->database();
+		$this->load->model('collageModel');
+		$this->lang->load('form_validation', 'chinese');
+		//$this->load->library('javascript');
+		//$this->output->cache(5);
+	}
     
      function _makeHeader(&$data)
     {
-         echo doctype('html5');
+		echo doctype('html5');
         $data['keywords'] = 'This, is, keywords';
         $data['description'] = 'This is description';
         $data['robots'] = 'This is robots part';
@@ -53,88 +54,77 @@ class Register extends CI_Controller{
 		$query = $this->db->insert_string('bk_captcha', $data1);
 		$this->db->query($query);
 		$data = array();
-         $this -> _makeHeader($data);
-		 $data['warning'] = 'none';
-		 $data['capTime']=$cap['time'];
-		 $this->collageModel->allCollage($data);
-		 
-         $this -> load -> view('header', $data);
-         $this -> load -> view('register');
-		 $this -> load -> view('footer');
+		$this -> _makeHeader($data);
+		$data['warning'] = 'none';
+		$data['capTime']=$cap['time'];
+		$this->collageModel->allCollage($data);
+
+		$this -> load -> view('header', $data);
+		$this -> load -> view('register');
+		$this -> load -> view('footer');
     }
 	
 	function validate()
 	{
 		 
-		 $rules = array(
-               array(
-                     'field'   => 'name', 
-                     'label'   => '用户名', 
-                     'rules'   => 'trim|required|min_length[4]|max_length[20]|xss_clean|alpha_dash|callback__checkUsername'
-                  ),
-               array(
-                     'field'   => 'pass1', 
-                     'label'   => '密码', 
-                     'rules'   => 'required|min_length[6]|max_length[20]|md5'
-                  ),
-               array(
-                     'field'   => 'pass2', 
-                     'label'   => '密码确认', 
-                     'rules'   => 'required|matches[pass1]|md5'
-                  ),   
-               array(
-                     'field'   => 'email', 
-                     'label'   => '电子邮件', 
-                     'rules'   => 'trim|required|valid_email|xss_clean|callback__checkUserEmail'
-                  ),
-			   array(
-                     'field'   => 'capcha', 
-                     'label'   => '验证码', 
-                     'rules'   => 'trim|required|callback__capchaValidate'
-                  ),
-			   array(
-                     'field'   => 'gender', 
-                     'label'   => '性别', 
-                     'rules'   => 'required|xss_clean'
-                  ),
-			   array(
-                     'field'   => 'cellphone', 
-                     'label'   => '联系电话', 
-                     'rules'   => 'trim|required|min_length[8]|max_length[11]|xss_clean|integer'
-                  ),
-			   array(
-                     'field'   => 'subject', 
-                     'label'   => '专业', 
-                     'rules'   => 'trim|required|min_length[1]|max_length[2]|xss_clean|integer'
-                  )
-            );
+		$rules = array(
+		   array(
+				 'field'   => 'name', 
+				 'label'   => '用户名', 
+				 'rules'   => 'trim|required|min_length[4]|max_length[20]|xss_clean|alpha_dash|callback__checkUsername'
+			  ),
+		   array(
+				 'field'   => 'pass1', 
+				 'label'   => '密码', 
+				 'rules'   => 'required|min_length[6]|max_length[20]|md5'
+			  ),
+		   array(
+				 'field'   => 'pass2', 
+				 'label'   => '密码确认', 
+				 'rules'   => 'required|matches[pass1]|md5'
+			  ),   
+		   array(
+				 'field'   => 'email', 
+				 'label'   => '电子邮件', 
+				 'rules'   => 'trim|required|valid_email|xss_clean|callback__checkUserEmail'
+			  ),
+		   array(
+				 'field'   => 'capcha', 
+				 'label'   => '验证码', 
+				 'rules'   => 'trim|required|callback__capchaValidate'
+			  ),
+		   array(
+				 'field'   => 'gender', 
+				 'label'   => '性别', 
+				 'rules'   => 'required|xss_clean'
+			  ),
+		   array(
+				 'field'   => 'cellphone', 
+				 'label'   => '联系电话', 
+				 'rules'   => 'trim|required|min_length[8]|max_length[11]|xss_clean|integer'
+			  ),
+		   array(
+				 'field'   => 'subject', 
+				 'label'   => '专业', 
+				 'rules'   => 'trim|required|min_length[1]|max_length[2]|xss_clean|integer'
+			  )
+		);
 
-		 $this->form_validation->set_rules($rules);
-		 $this->form_validation->set_message('required', '您的%s没有填写，请补充该内容。');
-		$this->form_validation->set_message('min_length', '您的%s长度太小。');
-		$this->form_validation->set_message('max_length', '您的%s长度太大。');
-		$this->form_validation->set_message('valid_email', '您的%s不上一个合法的电子邮件地址。');
-		$this->form_validation->set_message('alpha_dash', '%s当中仅允许英文字母、数字、下划线、英文破折号。');
+		$this->form_validation->set_rules($rules);
 		$this->form_validation->set_message('matches', '您的%s填写与密码并不一致。');
-		$this->form_validation->set_message('min_length', '您的%s长度太小。');
-		$this->form_validation->set_message('min_length', '您的%s长度太小。');
-		$this->form_validation->set_message('integer', '您的%s应当只包含数字。');
 		 
-		 if (!$this->form_validation->run())
-		  {
-		   $this->index();
-		  }
-		  else
-		  {
-		   $data = array();
-		   $data['msgtitle'] = '注册成功';
-		   $data['msgcontent'] = '恭喜您，您的注册已经完成，请点击<a href="'.base_url().'">返回首页</a>。';
-           $this ->_makeHeader($data);
-           $this ->load ->view('header', $data);
-           $this->load->view('message-template');
-		   $this ->load ->view('footer');
-		   $this->_register();
-		  }
+		if (!$this->form_validation->run()){
+			$this->index();
+		}else{
+			$data = array();
+			$data['msgtitle'] = '注册成功';
+			$data['msgcontent'] = '恭喜您，您的注册已经完成，请点击<a href="'.base_url().'">返回首页</a>。';
+			$this ->_makeHeader($data);
+			$this ->load ->view('header', $data);
+			$this->load->view('message-template');
+			$this ->load ->view('footer');
+			$this->_register();
+		}
     }
 	
 	function _capchaValidate($cc)
