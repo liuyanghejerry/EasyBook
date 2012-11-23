@@ -7,7 +7,6 @@ class Register extends CI_Controller{
 		$this->load->helper(array('html','form', 'url','captcha'));
 		$this->load->library('form_validation');
 		$this->load->database();
-		$this->load->model('collageModel');
 		$this->lang->load('form_validation', 'chinese');
 		//$this->load->library('javascript');
 		//$this->output->cache(5);
@@ -57,7 +56,6 @@ class Register extends CI_Controller{
 		$this -> _makeHeader($data);
 		$data['warning'] = 'none';
 		$data['capTime']=$cap['time'];
-		$this->collageModel->allCollage($data);
 
 		$this -> load -> view('header', $data);
 		$this -> load -> view('register');
@@ -92,21 +90,6 @@ class Register extends CI_Controller{
 				 'field'   => 'capcha', 
 				 'label'   => '验证码', 
 				 'rules'   => 'trim|required|callback__capchaValidate'
-			  ),
-		   array(
-				 'field'   => 'gender', 
-				 'label'   => '性别', 
-				 'rules'   => 'required|xss_clean'
-			  ),
-		   array(
-				 'field'   => 'cellphone', 
-				 'label'   => '联系电话', 
-				 'rules'   => 'trim|required|min_length[8]|max_length[11]|xss_clean|integer'
-			  ),
-		   array(
-				 'field'   => 'subject', 
-				 'label'   => '专业', 
-				 'rules'   => 'trim|required|min_length[1]|max_length[2]|xss_clean|integer'
 			  )
 		);
 
@@ -181,26 +164,12 @@ class Register extends CI_Controller{
 		$name = $this->input->post('name');
 		$md5passwd = md5($this->input->post('pass1'));//Notice, this is a double md5 encode. The first encode is when validate.
 		$email = $this->input->post('email');
-		$gender = $this->input->post('gender1');
-		if(!$gender)$gender=1;
-		$subject = $this->input->post('subject');
-		$collage = $this->collageModel->subjectToCollage($subject);
-		$studentid = $this->input->post('studentid');
-		$cellphone = $this->input->post('cellphone');
-		$qq = $this->input->post('qq');
-		if(!$qq)$qq = NULL;
 		
 		if($name && $md5passwd && $email) {
 			$data = array(
 						'user_name' => $name,
 						'user_passhash' => $md5passwd,
-						'user_email' => $email,
-						'user_subject' => $subject,
-						'user_collage' => $collage,
-						'user_studentid' => $studentid,
-						'user_cellphone' => $cellphone,
-						'user_qq' => $qq,
-						'user_gender' => $gender
+						'user_email' => $email
 					);
 			$query = $this->db->insert_string('bk_users', $data);
 			$this->db->query($query);

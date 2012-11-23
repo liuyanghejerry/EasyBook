@@ -36,26 +36,6 @@ echo form_input($attributes);
 
 <div>
 <?php
-echo form_label('性别选择','gender');
-$attributes = array(
-              'name'        => 'gender',
-              'id'          => 'gender1',
-			  'value'       => '1',
-			  'checked'     => TRUE,
-            );
-echo form_radio($attributes).'男';
-$attributes = array(
-              'name'        => 'gender',
-              'id'          => 'gender2',
-			  'value'       => '0',
-			  'checked'     => FALSE,
-            );
-echo form_radio($attributes).'女';
-?>
-</div>
-
-<div>
-<?php
 echo form_label('密码','pass1');
 $attributes = array(
               'name'        => 'pass1',
@@ -93,60 +73,11 @@ echo form_password($attributes);
 <?php endforeach; ?>
 </ul>
 
-<div>
-<?php
-echo form_label('专业','subject');
-$attributes = array(
-              'name'        => 'subject',
-              'id'          => 'subject',
-			  'value' => set_value('subject')
-            );
-echo form_input($attributes);
-?>
-<!--<span id="subjectInfo">您所的专业。</span>  -->
-</div>
 <script type="text/javascript">
 $(document).ready(function (){
 	var dd = $("#subject").mcDropdown("#categorymenu",{'delim': " - "});
 });
 </script>
-
-<div>
-<?php
-echo form_label('学号','studentid');
-$attributes = array(
-              'name'        => 'studentid',
-              'id'          => 'studentid'
-            );
-echo form_input($attributes);
-?>
-<span id="studentidInfo">您的学号。本站仅允许江南大学学生注册。</span>  
-</div>
-
-<div>
-<?php
-echo form_label('联系电话','cellphone');
-$attributes = array(
-              'name'        => 'cellphone',
-              'id'          => 'cellphone'
-            );
-echo form_input($attributes);
-?>
-<span id="cellphoneInfo">您的联系电话，以便买家或卖家联系您。</span>  
-</div>
-
-<div>
-<?php
-echo form_label('QQ','qq');
-$attributes = array(
-              'name'        => 'qq',
-              'id'          => 'qq'
-            );
-echo form_input($attributes);
-?>
-<span id="qqInfo">您的QQ号码。本项为选填信息。</span>  
-</div>
-
 
 <div>
 <?php

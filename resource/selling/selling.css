@@ -147,3 +147,23 @@ margin:0 auto;
 #datepicker div{
 	margin: 0;
 }
+
+#error{
+    margin-bottom: 20px;
+    border: 1px solid #efefef;
+}
+#error ul{
+    list-style: square;
+    padding: 5px;
+    font-size: 11px;
+}
+#error ul li{
+    list-style-position: inside;
+    line-height: 1.6em;
+}
+#error ul li strong{
+    color: #e46c6d;
+}
+#error.valid ul li strong{
+    color: #93d72e;
+}

@@ -9,7 +9,6 @@ class Usercenter extends CI_Controller{
 		 $this->load->model('sellingModel');
 		 $this->load->model('requestingModel');
 		 $this->load->model('userInfoModel');
-		 $this->load->model('collageModel');
 		 $this->load->database();
 		 //$this->load->library('javascript');
 		 //$this->output->cache(5);
@@ -40,8 +39,6 @@ class Usercenter extends CI_Controller{
 		 $data['selling'] = $this -> sellingModel-> whatsMyBook($userid);
 		 $data['requesting'] = $this -> requestingModel-> whatsMyBook($userid);
 		 $this -> userInfoModel ->allInfo($data,$userid);
-		 $data['userinfo']['user_collage'] = $this -> collageModel ->collageName($data['userinfo']['user_collage']);
-		 $data['userinfo']['user_subject'] = $this -> collageModel ->subjectName($data['userinfo']['user_subject']);
          $this -> load -> view('header', $data);
          $this -> load -> view('usercenter');
 		 $this -> load -> view('footer');
