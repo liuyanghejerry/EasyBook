@@ -25,6 +25,13 @@ class CollageModel extends CI_Model {
 			}
 	}
 	
+	function subject()
+	{
+		$sql = "SELECT subject_name FROM `bk_subjects` ORDER BY `subject_id`";
+		$query = $this->db->query($sql);
+		return $query->result_array();
+	}
+	
 	function allSubject($id)
 	{
 		$sql = "SELECT * FROM `bk_subjects` WHERE `collage_id` = ? ORDER BY `subject_id`";
