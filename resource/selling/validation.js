@@ -118,7 +118,7 @@ $(document).ready(function(){
 	function validateOprice(){
 		var filter = /^[0-9.]{1,}$/;
 		//if it's NOT valid
-		if( filter.test(oprice.val()) ){
+		if( !filter.test(oprice.val()) ){
 			oprice.addClass("error");
 			opriceInfo.text("您的原价输入不合法，请检查重新输入");
 			opriceInfo.addClass("error");
@@ -135,7 +135,7 @@ $(document).ready(function(){
 	function validateNprice(){
 		var filter = /^[0-9.]{1,}$/;
 		//if it's NOT valid
-		if( filter.test(nprice.val()) ){
+		if( !filter.test(nprice.val()) ){
 			nprice.addClass("error");
 			npriceInfo.text("您的现价输入不合法，请检查重新输入");
 			npriceInfo.addClass("error");
@@ -152,7 +152,7 @@ $(document).ready(function(){
 	function validateContact(){
 		var filter = /^[0-9]{5,}$/;
 		//if it's NOT valid
-		if( filter.test(contact.val()) ){
+		if( !filter.test(contact.val()) ){
 			contact.addClass("error");
 			contactInfo.text("您的联系电话输入不合法，请检查重新输入");
 			contactInfo.addClass("error");
