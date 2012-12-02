@@ -2,3 +2,5 @@
 /resource/capcha
 /resource/upload
 /application/logs/*.php
+/application/config/config.php
+/application/config/database.php
