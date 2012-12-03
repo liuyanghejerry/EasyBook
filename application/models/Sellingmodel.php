@@ -1,25 +1,25 @@
 <?php
 class SellingModel extends CI_Model {
 
-    var $data;
+	var $data;
 
-    function __construct()
-    {
-        parent::__construct();
-    }
-	
+	function __construct()
+	{
+		parent::__construct();
+	}
+
 	function queryData(&$data,$collageNum,$subjectNum,$page)
-	 {
+	{
 		if(!$collageNum){
-			$sql = "SELECT * FROM `bk_selling` WHERE `book_status` = 1 ORDER BY `selling_start` LIMIT ?,?";
+			$sql = "SELECT * FROM `bk_selling` WHERE `book_status` = 1 ORDER BY `selling_start` DESC LIMIT ?,?";
 			$query = $this->db->query($sql,array($page+0, $page+10));
 		}else{
 			if(!$subjectNum) {
-			$sql = "SELECT * FROM `bk_selling` WHERE `book_collage` = ? AND `book_status` = 1 ORDER BY `selling_start` LIMIT ?,?";
-			$query = $this->db->query($sql,array($collageNum,$page+0, $page+10));
+				$sql = "SELECT * FROM `bk_selling` WHERE `book_collage` = ? AND `book_status` = 1 ORDER BY `selling_start` DESC LIMIT ?,?";
+				$query = $this->db->query($sql,array($collageNum,$page+0, $page+10));
 			}else{
-			$sql = "SELECT * FROM `bk_selling` WHERE `book_collage` = ? AND `book_subject` = ? AND `book_status` = 1 ORDER BY `selling_start` LIMIT ?,?";
-			$query = $this->db->query($sql,array($collageNum, $subjectNum, $page+0, $page+10));
+				$sql = "SELECT * FROM `bk_selling` WHERE `book_collage` = ? AND `book_subject` = ? AND `book_status` = 1 ORDER BY `selling_start` DESC LIMIT ?,?";
+				$query = $this->db->query($sql,array($collageNum, $subjectNum, $page+0, $page+10));
 			}
 		}
 		$i = 0;
@@ -33,56 +33,57 @@ class SellingModel extends CI_Model {
 		   $data['selling'][$i]['book_subject'] = $this->querySubject($data['selling'][$i]['book_subject']);
 		   $i++;
 		}
-	 }
-	 	 
-	 function queryOwner($id)
-	 {
+	}
+		 
+	function queryOwner($id)
+	{
 		$sql = "SELECT * FROM `bk_users` WHERE `user_id` = ? LIMIT 1";
 		$query = $this->db->query($sql,array($id));
 		return $query->row()->user_name;
-	 }
-	 
-	 function whosBook($id)
-	 {
+	}
+
+	function whosBook($id)
+	{
 		$sql = "SELECT * FROM `bk_selling` WHERE `selling_id` = ? LIMIT 1";
 		$query = $this->db->query($sql,array($id));
 		return $query->row()->book_ownerid;
-	 }
-	 
-	 function queryCollage($id)
-	 {
+	}
+
+	function queryCollage($id)
+	{
 		$sql = "SELECT * FROM `bk_collages` WHERE `collage_id` = ? LIMIT 1";
 		$query = $this->db->query($sql,array($id));
 		return $query->row()->collage_name;
-	 }
-	 
-	 function querySubject($id)
-	 {
+	}
+
+	function querySubject($id)
+	{
 		if($id){
 			$sql = "SELECT * FROM `bk_subjects` WHERE `subject_id` = ? LIMIT 1";
 			$query = $this->db->query($sql,array($id));
 			return $query->row()->subject_name;
 		}else{
 		}
-	 }
-	 
-	 function querySelling(&$data,$id)
-	 {
+	}
+
+	function querySelling(&$data,$id)
+	{
 		if($id){
 			$sql = "SELECT * FROM `bk_selling` WHERE `selling_id` = ? LIMIT 1";
 			$query = $this->db->query($sql,array($id));
-			if(!$query -> num_rows())return false;
+			if( !$query->num_rows() )return FALSE;
 			$data['item'] = $query->row_array();
-		    $data['item']['book_collage'] = $this->queryCollage($data['item']['book_collage'] );
-		    $data['item']['book_subject'] = $this->querySubject($data['item']['book_subject']);
+			$data['item']['book_collage'] = $this->queryCollage($data['item']['book_collage'] );
+			$data['item']['book_subject'] = $this->querySubject($data['item']['book_subject']);
 			$data['item']['book_owner'] = $this->queryOwner($data['item']['book_ownerid']);
-			return true;
+			return TRUE;
 		}else{
+			return FALSE;
 		}
-	 }
-	 
-	 function otherCollage($id)
-	 {
+	}
+
+	function otherCollage($id)
+	{
 		if($id){
 			$sql = "SELECT * FROM `bk_collages` WHERE `collage_id` != ?";
 			$query = $this->db->query($sql,array($id));
@@ -92,10 +93,10 @@ class SellingModel extends CI_Model {
 			$query = $this->db->query($sql);
 			return $query->result_array();
 		}
-	 }
-	 
-	 function otherSubject($id, $collageid=2)
-	 {
+	}
+
+	function otherSubject($id, $collageid=2)
+	{
 		if($id){
 			$sql = "SELECT * FROM `bk_subjects` WHERE `subject_id` = ? LIMIT 1";
 			$query = $this->db->query($sql,array($id));
@@ -110,10 +111,10 @@ class SellingModel extends CI_Model {
 				return $query->result_array();
 			}
 		}
-	 }
-	 
-	 function sameSubjectBook($id)
-	 {
+	}
+
+	function sameSubjectBook($id)
+	{
 		if($id){
 			$sql = "SELECT * FROM `bk_selling` WHERE `selling_id` = ? LIMIT 1";
 			$query = $this->db->query($sql,array($id));
@@ -124,10 +125,10 @@ class SellingModel extends CI_Model {
 		}else{
 			//
 		}
-	 }
-	 
-	 function sameCollageBook($id)
-	 {
+	}
+
+	function sameCollageBook($id)
+	{
 		if($id){
 			$sql = "SELECT * FROM `bk_selling` WHERE `selling_id` = ? LIMIT 1";
 			$query = $this->db->query($sql,array($id));
@@ -138,10 +139,10 @@ class SellingModel extends CI_Model {
 		}else{
 			//
 		}
-	 }
-	 
-	 function whatsMyBook($id)
-	 {
+	}
+
+	function whatsMyBook($id)
+	{
 		if($id){
 			$sql = "SELECT * FROM `bk_selling` WHERE `book_ownerid` = ?";
 			$query = $this->db->query($sql,array($id));
@@ -149,10 +150,10 @@ class SellingModel extends CI_Model {
 		}else{
 			//
 		}
-	 }
-	 
-	 function closeBook($id)
-	 {
+	}
+
+	function closeBook($id)
+	{
 		if($id){
 			$sql = "UPDATE `bk_selling` SET `book_status` = ? WHERE `selling_id` = ?";
 			$query = $this->db->query($sql,array(0,$id));
@@ -160,13 +161,6 @@ class SellingModel extends CI_Model {
 		}else{
 			//
 		}
-	 }
-	 
-	 // function firstSubject($id)
-	 // {
-		// $sql = "SELECT * FROM `bk_subjects` WHERE `collage_id` = ? ORDER BY `subject_id`";
-		// $query = $this->db->query($sql,array($collage,$id));
-		// return $query->row();
-	 // }
+	}
 }
 ?>
