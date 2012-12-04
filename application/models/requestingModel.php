@@ -64,13 +64,14 @@ class RequestingModel extends CI_Model {
 		if($id){
 			$sql = "SELECT * FROM `bk_requesting` WHERE `requesting_id` = ? LIMIT 1";
 			$query = $this->db->query($sql,array($id));
-			if(!$query -> num_rows())return false;
+			if(!$query -> num_rows())return FALSE;
 			$data['item'] = $query->row_array();
 		    $data['item']['book_collage'] = $this->queryCollage($data['item']['book_collage'] );
 		    $data['item']['book_subject'] = $this->querySubject($data['item']['book_subject']);
 			$data['item']['book_owner'] = $this->queryOwner($data['item']['book_ownerid']);
-			return true;
+			return TRUE;
 		}else{
+			return FALSE;
 		}
 	 }
 	 

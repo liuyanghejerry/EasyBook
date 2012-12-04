@@ -53,7 +53,7 @@ $(document).ready(function(){
 	//validation functions
 	function validateName(){
 		//if it's NOT valid
-		if(name.val().length < 3 || name.val().length >20 ){
+		if(name.val().length < 1 || name.val().length >200 ){
 			name.addClass("error");
 			nameInfo.text("您的书名输入不合法，请检查重新输入");
 			nameInfo.addClass("error");
@@ -69,7 +69,7 @@ $(document).ready(function(){
 	}
 	function validateAuthor(){
 		//if it's NOT valid
-		if(author.val().length < 3 || author.val().length >20 ){
+		if(author.val().length < 3 || author.val().length >100 ){
 			author.addClass("error");
 			authorInfo.text("您的作者输入不合法，请检查重新输入");
 			authorInfo.addClass("error");
@@ -101,7 +101,7 @@ $(document).ready(function(){
 	}
 	function validatePublisher(){
 		//if it's NOT valid
-		if(publisher.val().length < 3 || publisher.val().length >20 ){
+		if(publisher.val().length < 3 || publisher.val().length >100 ){
 			publisher.addClass("error");
 			publisherInfo.text("您的出版社输入不合法，请检查重新输入");
 			publisherInfo.addClass("error");

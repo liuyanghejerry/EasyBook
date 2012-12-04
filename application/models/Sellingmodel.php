@@ -73,6 +73,8 @@ class SellingModel extends CI_Model {
 			$query = $this->db->query($sql,array($id));
 			if( !$query->num_rows() )return FALSE;
 			$data['item'] = $query->row_array();
+			$fileInfo = pathinfo($data['item']['book_boxart']);
+			$data['item']['book_boxart_thumb'] = $fileInfo['dirname']."/".$fileInfo['filename']."_thumb.".$fileInfo['extension'];
 			$data['item']['book_collage'] = $this->queryCollage($data['item']['book_collage'] );
 			$data['item']['book_subject'] = $this->querySubject($data['item']['book_subject']);
 			$data['item']['book_owner'] = $this->queryOwner($data['item']['book_ownerid']);

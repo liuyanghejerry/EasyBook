@@ -79,7 +79,8 @@
     padding: 0px 4px 15px 4px; 
 }
 .st-content img{
-    width:125px;
+	/* to make zoomer work */
+    /*width:125px;*/
     border-right:1px solid #fff;
     border-bottom:1px solid #fff;
 }
@@ -127,7 +128,7 @@
 	margin-top:20px;
 } 
 .slot {
-	width:500px;
+	width:600px;
 	height:30px;
 }
 .left-slot {
@@ -140,8 +141,8 @@
 
 /**********************/
 #frame {
-width:970px;
-margin:0 auto;
+	width:970px;
+	margin:0 auto;
 }
 
 #datepicker div{

@@ -2,14 +2,16 @@
 <div class="white-box" id="requesting-nav">
 <h2>同专业其它书籍</h2>
 <ul>
-<?php if(isset($subjects)) {
-foreach($subjects as $item){
-echo "<li>+ <a href='".site_url()."/requesting/single/".$item['requesting_id']."'>".$item['book_name']."</a></li>";
-}
-//if(isset($subjects[0]['collage_id']))echo "<li>+ <a href='".site_url()."/selling/page/".$subjects[0]['collage_id']."/0'>全部</a></li>";
-}else{
-echo "<li>+ <b>全部</b></li>";
-} ?>
+<?php
+	if(isset($subjects)) {
+		foreach($subjects as $one){
+			echo "<li>+ <a href='".site_url("/requesting/single/".$one['requesting_id'])."'>".$one['book_name']."</a></li>";
+		}
+		//if(isset($subjects[0]['collage_id']))echo "<li>+ <a href='".site_url()."/selling/page/".$subjects[0]['collage_id']."/0'>全部</a></li>";
+	}else{
+		echo "<li>+ <b>全部</b></li>";
+	}
+?>
 </ul>
 </div>
 <div class="white-box" id="requesting-box">
@@ -44,13 +46,13 @@ echo "<li>+ <b>全部</b></li>";
 <h2>同学院其它书籍</h2>
 <ul>
 <!--
-<li>+ <a href='<?=site_url()."/requesting"?>'>全部</a></li>
+<li>+ <a href='<?=site_url("/requesting")?>'>全部</a></li>
 -->
 <?php 
 if(isset($collages)){
-foreach($collages as $item){
+foreach($collages as $one){
 //echo "<li>+ <a href='".site_url()."/selling/page/".$item['collage_id']."/".$item['collage_firstsub']."'>".$item['collage_name']."</a></li>";
-echo "<li>+ <a href='".site_url()."/requesting/single/".$item['requesting_id']."'>".$item['book_name']."</a></li>";
+echo "<li>+ <a href='".site_url("/requesting/single/".$one['requesting_id'])."'>".$one['book_name']."</a></li>";
 }
 }
 ?>	

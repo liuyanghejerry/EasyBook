@@ -5,7 +5,7 @@
 <?php 
 	if(isset($subjects)) {
 		foreach($subjects as $one){
-			echo "<li>+ <a href='".site_url()."/selling/single/".$one['selling_id']."'>".$one['book_name']."</a></li>";
+			echo "<li>+ <a href='".site_url("/selling/single/".$one['selling_id'])."'>".$one['book_name']."</a></li>";
 		}
 	}else{
 		echo "<li>+ <b>全部</b></li>";
@@ -17,8 +17,11 @@
 <h2><?=$item['book_name']?></h2>
 	<div class="st-content">
 		<div class="boxart-slot">
-		<!--boxart of book -->
-		<img src="<?=base_url().$item['book_boxart']?>"/>
+			<!--boxart of book -->
+			<!-- TODO: only when photo big enough to use enlarge functions -->
+			<a class="zoom-img" title="<?=$item['book_name']?>" href="<?=base_url($item['book_boxart'])?>">
+				<img title="<?=$item['book_name']?>" src="<?=base_url($item['book_boxart_thumb'])?>"/>
+			</a>
 		</div>
 		<div>
 			<div class="info-slot">
@@ -26,7 +29,7 @@
 			<div class="slot"><span class="left-slot">书名：<?=$item['book_name']?></span><span class="right-slot">ISBN：<?=$item['book_isbn']?></span></div>
 			<div class="slot"><span class="left-slot">出版社：<?=$item['book_publisher']?></span><span class="right-slot">作者：<?=$item['book_author']?></span></div>
 			<div class="slot"><span class="left-slot">适用学院：<?=$item['book_collage']?></span><span class="right-slot">适用专业：<?=$item['book_subject']?></span></div>
-			<div class="slot"><span class="left-slot">原价：<?=$item['book_oprice']?></span><span class="right-slot">现价：<?=$item['book_nprice']?></span></div>
+			<div class="slot"><span class="left-slot">原价：￥<?=$item['book_oprice']?></span><span class="right-slot">现价：￥<?=$item['book_nprice']?></span></div>
 			</div>
 			<div class="info-slot">
 			<h2>发布信息</h2>
@@ -51,16 +54,28 @@
 <h2>同学院其它书籍</h2>
 <ul>
 <!--
-<li>+ <a href='<?=site_url()."/selling"?>'>全部</a></li>
+<li>+ <a href='<?=site_url("/selling")?>'>全部</a></li>
 -->
 <?php 
 	if(isset($collages)){
 		foreach($collages as $one){
 			//echo "<li>+ <a href='".site_url()."/selling/page/".$item['collage_id']."/".$item['collage_firstsub']."'>".$item['collage_name']."</a></li>";
-			echo "<li>+ <a href='".site_url()."/selling/single/".$one['selling_id']."'>".$one['book_name']."</a></li>";
+			echo "<li>+ <a href='".site_url("/selling/single/".$one['selling_id'])."'>".$one['book_name']."</a></li>";
 		}
 	}
 ?>	
 </ul>
 </div>
 </div>
+
+<script>
+$(document).ready(function(){  
+    $('.zoom-img').jqzoom({  
+            zoomType: 'standard',  
+            lens:true,  
+            preloadImages: true,  
+            alwaysOn:false,
+            position:'right'  
+    });  
+});  
+</script>
