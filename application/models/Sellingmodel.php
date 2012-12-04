@@ -28,6 +28,9 @@ class SellingModel extends CI_Model {
 		foreach ($query->result_array() as $row)
 		{
 		   $data['selling'][$i] = $row;
+		   $fileInfo = pathinfo($data['selling'][$i]['book_boxart']);
+			$data['selling'][$i]['book_boxart_thumb'] = $fileInfo['dirname']."/"
+					.$fileInfo['filename']."_thumb.".$fileInfo['extension'];
 		   $data['selling'][$i]['book_owner'] = $this->queryOwner($data['selling'][$i]['book_ownerid']);
 		   $data['selling'][$i]['book_collage'] = $this->queryCollage($data['selling'][$i]['book_collage']);
 		   $data['selling'][$i]['book_subject'] = $this->querySubject($data['selling'][$i]['book_subject']);
@@ -74,7 +77,8 @@ class SellingModel extends CI_Model {
 			if( !$query->num_rows() )return FALSE;
 			$data['item'] = $query->row_array();
 			$fileInfo = pathinfo($data['item']['book_boxart']);
-			$data['item']['book_boxart_thumb'] = $fileInfo['dirname']."/".$fileInfo['filename']."_thumb.".$fileInfo['extension'];
+			$data['item']['book_boxart_thumb'] = $fileInfo['dirname']."/"
+					.$fileInfo['filename']."_thumb.".$fileInfo['extension'];
 			$data['item']['book_collage'] = $this->queryCollage($data['item']['book_collage'] );
 			$data['item']['book_subject'] = $this->querySubject($data['item']['book_subject']);
 			$data['item']['book_owner'] = $this->queryOwner($data['item']['book_ownerid']);
